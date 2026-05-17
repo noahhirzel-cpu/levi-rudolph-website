@@ -144,7 +144,7 @@ export default async function HomePage() {
             <p className="text-xs font-semibold tracking-widest uppercase text-gold">
               Über mich
             </p>
-            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-darktext leading-tight">
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-darktext leading-tight">
               Beratung auf Augenhöhe — nicht von der Stange
             </h2>
             <p className="text-gray-subtle leading-relaxed text-lg">
@@ -169,8 +169,6 @@ export default async function HomePage() {
         headline="Beratung, die wirklich passt"
         subline="In einem kurzen Erstgespräch lerne ich deine Situation kennen — und du erfährst, wie ich dir konkret helfen kann. Kein Druck, kein Script."
         label="Meine Arbeitsweise"
-        posterSrc="/images/beratung-1.jpg"
-        posterAlt="Professionelle Finanzberatung mit Levi Rudolph"
       />
 
       {/* Finanzcheck Promo — full bleed */}
@@ -209,7 +207,7 @@ export default async function HomePage() {
               <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
                 Leistungen
               </p>
-              <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-darktext leading-tight">
+              <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-darktext leading-tight">
                 Was ich für dich tue
               </h2>
             </div>
@@ -238,7 +236,7 @@ export default async function HomePage() {
             <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
               So funktioniert's
             </p>
-            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-warmwhite leading-tight">
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-warmwhite leading-tight">
               Drei Schritte zu deiner Finanzstrategie
             </h2>
           </div>
