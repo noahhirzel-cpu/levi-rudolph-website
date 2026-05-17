@@ -45,9 +45,10 @@ export function Navbar() {
         <div className="flex items-center justify-between h-[72px] lg:h-[80px]">
           {/* Logo */}
           <Link
-            href="/"
-            className="flex flex-col leading-none group"
-            aria-label="Levi Rudolph â€” Startseite"
+            href=”/”
+            onClick={() => { if (pathname === “/”) window.scrollTo({ top: 0, behavior: “smooth” }); }}
+            className=”flex flex-col leading-none group”
+            aria-label=”Levi Rudolph — Startseite”
           >
             <span className="font-heading text-2xl font-bold text-warmwhite tracking-tight">
               Levi Rudolph
