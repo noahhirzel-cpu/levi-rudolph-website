@@ -16,19 +16,18 @@ export function CTABanner({
   buttonHref = "/termin",
 }: CTABannerProps) {
   return (
-    <section className="bg-navy py-20 px-4">
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
-        <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-warmwhite leading-tight">
+    <section className="bg-navy py-32 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto flex flex-col items-start gap-8">
+        <h2 className="font-heading text-4xl sm:text-5xl font-bold text-warmwhite leading-tight max-w-2xl">
           {heading}
         </h2>
-        <p className="text-warmwhite/70 text-lg max-w-xl">{subtext}</p>
+        <p className="text-warmwhite/50 text-lg max-w-xl">{subtext}</p>
         <Button
           render={<Link href={buttonHref} />}
-          size="lg"
-          className="mt-2 bg-gold text-navy font-semibold hover:bg-gold-light transition-colors rounded-full px-8 py-6 text-base gap-2"
+          className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide gap-2"
         >
           {buttonText}
-          <ArrowRight size={18} />
+          <ArrowRight size={14} />
         </Button>
       </div>
     </section>

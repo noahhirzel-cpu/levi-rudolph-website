@@ -7,7 +7,7 @@ function LinkedInIcon({ size = 18, className }: { size?: number; className?: str
       <rect width="4" height="12" x="2" y="9"/>
       <circle cx="4" cy="4" r="2"/>
     </svg>
-  )
+  );
 }
 
 const footerLinks = [
@@ -28,10 +28,7 @@ const footerLinks = [
       { href: "/leistungen/krankenversicherung", label: "Krankenversicherung" },
       { href: "/leistungen/vermoegensaufbau", label: "Vermögensaufbau" },
       { href: "/leistungen/immobilienfinanzierung", label: "Immobilien" },
-      {
-        href: "/leistungen/karriere-finanzplanung",
-        label: "Karriere & Finanzen",
-      },
+      { href: "/leistungen/karriere-finanzplanung", label: "Karriere & Finanzen" },
     ],
   },
   {
@@ -46,11 +43,28 @@ const footerLinks = [
 export function Footer() {
   return (
     <footer className="bg-navy text-warmwhite/80">
+      {/* MLP Partner Banner */}
+      <div className="border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-warmwhite/40 tracking-wide">
+            Levi Rudolph ist selbstständiger Handelsvertreter der MLP Finanzberatung SE
+          </p>
+          <a
+            href="https://www.mlp.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-semibold tracking-widest uppercase text-gold/60 hover:text-gold transition-colors duration-200"
+          >
+            mlp.de
+          </a>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex flex-col leading-none mb-4">
+            <Link href="/" className="flex flex-col leading-none mb-5">
               <span className="font-heading text-2xl font-bold text-warmwhite">
                 Levi Rudolph
               </span>
@@ -58,33 +72,33 @@ export function Footer() {
                 Financial Advisor
               </span>
             </Link>
-            <p className="text-sm text-warmwhite/60 leading-relaxed mb-6">
-              Maßgeschneiderte Finanzberatung für Kammerberufler & Ingenieure.
-              MLP Finanzberatung SE · Frankfurt am Main.
+            <p className="text-sm text-warmwhite/40 leading-relaxed mb-6">
+              Maßgeschneiderte Finanzberatung für Kammerberufler und Ingenieure.
+              Frankfurt am Main.
             </p>
             <a
               href="https://de.linkedin.com/in/levi-rudolph-dh-student"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profil von Levi Rudolph"
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-gold hover:text-navy transition-colors duration-200"
+              className="inline-flex items-center justify-center w-9 h-9 border border-white/20 text-warmwhite/60 hover:border-gold hover:text-gold transition-colors duration-200"
             >
-              <LinkedInIcon size={18} />
+              <LinkedInIcon size={16} />
             </a>
           </div>
 
           {/* Link Columns */}
           {footerLinks.map((group) => (
             <div key={group.heading}>
-              <h3 className="text-xs font-semibold text-gold tracking-widest uppercase mb-4">
+              <h3 className="text-xs font-semibold text-warmwhite/30 tracking-widest uppercase mb-5">
                 {group.heading}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {group.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-warmwhite/60 hover:text-warmwhite transition-colors duration-200"
+                      className="text-sm text-warmwhite/50 hover:text-warmwhite transition-colors duration-200"
                     >
                       {link.label}
                     </Link>
@@ -97,11 +111,11 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-warmwhite/40">
+          <p className="text-xs text-warmwhite/25">
             © {new Date().getFullYear()} Levi Rudolph. Alle Rechte vorbehalten.
           </p>
-          <p className="text-xs text-warmwhite/40">
-            Financial Advisor · MLP Finanzberatung SE · Frankfurt am Main
+          <p className="text-xs text-warmwhite/25">
+            MLP Finanzberatung SE · Frankfurt am Main
           </p>
         </div>
       </div>

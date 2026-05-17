@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTABanner } from "@/components/ui/CTABanner";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, ArrowRight, GraduationCap, Briefcase } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Über mich",
@@ -29,38 +27,30 @@ const skills = [
 const timeline = [
   {
     year: "2025 – heute",
-    icon: <Briefcase size={16} />,
     title: "Financial Advisor",
-    org: "MLP Finanzberatung SE",
-    location: "Frankfurt am Main",
+    org: "MLP Finanzberatung SE · Frankfurt am Main",
     description:
       "Selbstständige Finanzberatung für Kammerberufler und Ingenieure unter dem Dach von Deutschlands führendem Finanzdienstleister.",
   },
   {
     year: "2022 – 2025",
-    icon: <GraduationCap size={16} />,
     title: "B.A. Banking & Financial Support Services",
-    org: "DHBW Mannheim",
-    location: "Mannheim",
+    org: "DHBW Mannheim · Abschluss Note 1,5",
     description:
-      "Duales Studium in Kooperation mit MLP Finanzberatung SE. Abschluss mit Note 1,5. Schwerpunkte: Produktmanagement, MLP Banking, Beratungssegmente.",
+      "Duales Studium in Kooperation mit MLP Finanzberatung SE. Schwerpunkte: Produktmanagement, MLP Banking, Beratungssegmente.",
   },
   {
     year: "2018",
-    icon: <Briefcase size={16} />,
     title: "Praktikum Individualkundenberatung",
-    org: "Volksbank Neckartal eG",
-    location: "Heidelberg",
+    org: "Volksbank Neckartal eG · Heidelberg",
     description:
       "Erste Praxiserfahrung in der Kundenberatung und im Bankwesen.",
   },
   {
     year: "bis 2022",
-    icon: <GraduationCap size={16} />,
     title: "Abitur",
-    org: "Max-Weber-Schule Sinsheim",
-    location: "Sinsheim",
-    description: "Schwerpunkt VBWL. Abschluss mit Note 1,3.",
+    org: "Max-Weber-Schule Sinsheim · Note 1,3",
+    description: "Schwerpunkt Wirtschaft und Betriebswirtschaftslehre.",
   },
 ];
 
@@ -68,62 +58,48 @@ export default function UeberMichPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 px-4 bg-warmwhite">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Photo */}
+      <section className="pt-40 pb-24 px-4 sm:px-6 lg:px-8 bg-warmwhite">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           <div className="relative">
-            <div className="relative w-full max-w-sm mx-auto lg:mx-0 aspect-[3/4] rounded-2xl overflow-hidden bg-navy/10">
+            <div className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-navy/5 overflow-hidden">
               <Image
-                src="/levi-placeholder.jpg"
+                src="/images/levi-business.jpeg"
                 alt="Levi Rudolph — Financial Advisor Frankfurt"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-gold/20" />
-            </div>
-            <div className="absolute bottom-4 left-4 bg-navy text-warmwhite rounded-xl px-4 py-3 shadow-xl">
-              <p className="text-xs text-gold font-semibold uppercase tracking-wide">
-                Financial Advisor
-              </p>
-              <p className="text-sm font-bold">MLP · Frankfurt</p>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="flex flex-col gap-6 lg:pt-8">
-            <SectionHeading
-              tag="Über mich"
-              title="Ich bin Levi — Finanzberater auf Augenhöhe"
-            />
+          <div className="flex flex-col gap-8 lg:pt-4">
+            <p className="text-xs font-semibold tracking-widest uppercase text-gold">
+              Über mich
+            </p>
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-darktext leading-tight">
+              Ich bin Levi — Finanzberater auf Augenhöhe
+            </h1>
 
-            <div className="space-y-4 text-gray-subtle leading-relaxed">
+            <div className="space-y-5 text-gray-subtle leading-relaxed text-lg">
               <p>
-                Ich bin Levi Rudolph, Financial Advisor bei MLP Finanzberatung SE in Frankfurt.
+                Ich bin Levi Rudolph, Financial Advisor bei MLP in Frankfurt.
                 Meine Leidenschaft: Finanzielle Angst in finanzielles Selbstbewusstsein verwandeln.
               </p>
               <p>
                 Nach meinem dualen Studium an der DHBW Mannheim (B.A. Banking, Note 1,5) habe ich
-                mich entschieden, selbstständig zu beraten — weil ich glaube, dass echte Beratung
-                keine Einheitslösungen kennt.
-              </p>
-              <p>
-                Meine Zielgruppe sind angehende Kammerberufler — Ärzte, Anwälte, Ingenieure — die
-                kluge, langfristige Entscheidungen treffen wollen. Menschen, die sich kein
-                Versicherungsblabla wünschen, sondern echte Beratung, die zu ihrem Leben passt.
+                mich entschieden, selbstständig zu beraten — weil echte Beratung keine
+                Einheitslösungen kennt.
               </p>
             </div>
 
-            {/* Quote */}
-            <blockquote className="border-l-4 border-gold pl-6 py-2 italic text-darktext font-heading text-lg">
+            <blockquote className="border-l-2 border-gold pl-6 py-1 text-darktext font-heading text-xl italic leading-snug">
               "Kein Versicherungsblabla. Echte Beratung, die zu deinem Leben passt."
             </blockquote>
 
             <Button
               render={<Link href="/termin" />}
-              className="w-fit bg-gold text-navy font-semibold hover:bg-gold-light rounded-full px-6 gap-2"
+              className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide w-fit"
             >
-              <Calendar size={16} />
               Lern mich kennen
             </Button>
           </div>
@@ -131,91 +107,79 @@ export default function UeberMichPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <SectionHeading
-            tag="Werdegang"
-            title="Mein Weg zur Finanzberatung"
-            className="mb-12"
-          />
-          <div className="relative">
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border" />
-            <div className="flex flex-col gap-10">
-              {timeline.map((item) => (
-                <div key={item.title} className="flex gap-6 relative">
-                  <div className="relative flex-shrink-0 w-8 h-8 rounded-full bg-navy flex items-center justify-center text-gold z-10">
-                    {item.icon}
-                  </div>
-                  <div className="flex flex-col gap-1 pb-2">
-                    <span className="text-xs font-semibold text-gold uppercase tracking-wide">
-                      {item.year}
-                    </span>
-                    <h3 className="font-heading text-lg font-bold text-darktext">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm font-medium text-gray-subtle">
-                      {item.org} · {item.location}
-                    </p>
-                    <p className="text-sm text-gray-subtle leading-relaxed mt-1">
-                      {item.description}
-                    </p>
-                  </div>
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-12">
+            Werdegang
+          </p>
+          <div className="flex flex-col divide-y divide-border">
+            {timeline.map((item) => (
+              <div key={item.title} className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-8">
+                <div>
+                  <span className="text-xs font-semibold text-gold uppercase tracking-wide">
+                    {item.year}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section className="py-20 px-4 bg-warmwhite">
-        <div className="max-w-3xl mx-auto">
-          <SectionHeading
-            tag="Expertise"
-            title="Top-Kenntnisse"
-            subtitle="Bereiche, in denen ich täglich berate und publiziere."
-            className="mb-10"
-          />
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <Badge
-                key={skill}
-                variant="outline"
-                className="border-navy/20 text-darktext text-sm px-4 py-2 rounded-full font-medium hover:border-gold hover:text-gold transition-colors"
-              >
-                {skill}
-              </Badge>
+                <div className="sm:col-span-2 flex flex-col gap-2">
+                  <h3 className="font-heading text-lg font-bold text-darktext">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-subtle font-medium">{item.org}</p>
+                  <p className="text-sm text-gray-subtle leading-relaxed mt-1">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* LinkedIn CTA */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-6 p-8 bg-navy/5 rounded-2xl border border-navy/10">
-          <div className="flex-1">
-            <h3 className="font-heading text-xl font-bold text-darktext mb-2">
+      {/* Skills */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-warmwhite">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-12">
+            Expertise
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="text-sm text-darktext border border-border px-4 py-2 hover:border-gold hover:text-gold transition-colors duration-200 cursor-default"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LinkedIn */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 py-12 border-y border-border">
+          <div>
+            <p className="font-heading text-2xl font-bold text-darktext mb-2">
               10.000+ Follower auf LinkedIn
-            </h3>
+            </p>
             <p className="text-gray-subtle text-sm">
-              Ich schreibe regelmäßig über Finanzplanung, Karriere und Vermögensaufbau.
-              Folg mir für kostenlose Insights.
+              Finanzplanung, Karriere, Vermögensaufbau — wöchentliche Insights kostenlos.
             </p>
           </div>
-          <Button
-            render={<a href="https://de.linkedin.com/in/levi-rudolph-dh-student" target="_blank" rel="noopener noreferrer" />}
-            variant="outline"
-            className="border-navy text-navy hover:bg-navy hover:text-warmwhite rounded-full px-6 gap-2 shrink-0"
+          <Link
+            href="https://de.linkedin.com/in/levi-rudolph-dh-student"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-darktext border-b border-darktext pb-0.5 hover:text-gold hover:border-gold transition-colors duration-200 shrink-0"
           >
             LinkedIn besuchen
-            <ArrowRight size={16} />
-          </Button>
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </section>
 
       <CTABanner
         heading="Neugierig geworden?"
-        subtext="Buche jetzt dein kostenloses Erstgespräch und wir schauen gemeinsam, wie ich dir helfen kann."
+        subtext="Buche jetzt dein kostenloses Erstgespräch — ich freu mich drauf."
       />
     </>
   );

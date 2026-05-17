@@ -5,7 +5,6 @@ interface SectionHeadingProps {
   title: string;
   subtitle?: string;
   centered?: boolean;
-  goldUnderline?: boolean;
   light?: boolean;
   className?: string;
 }
@@ -15,14 +14,13 @@ export function SectionHeading({
   title,
   subtitle,
   centered = false,
-  goldUnderline = true,
   light = false,
   className,
 }: SectionHeadingProps) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-3",
+        "flex flex-col gap-4",
         centered && "items-center text-center",
         className
       )}
@@ -39,15 +37,12 @@ export function SectionHeading({
         )}
       >
         {title}
-        {goldUnderline && (
-          <span className="block w-12 h-1 bg-gold mt-3 rounded-full" />
-        )}
       </h2>
       {subtitle && (
         <p
           className={cn(
             "text-base sm:text-lg leading-relaxed max-w-2xl",
-            light ? "text-warmwhite/70" : "text-gray-subtle"
+            light ? "text-warmwhite/50" : "text-gray-subtle"
           )}
         >
           {subtitle}

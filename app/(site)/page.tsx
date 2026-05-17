@@ -1,5 +1,5 @@
 import { AnimatedHero } from "@/components/sections/AnimatedHero";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { VideoTeaser } from "@/components/sections/VideoTeaser";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { BlogCard } from "@/components/ui/BlogCard";
 import { CTABanner } from "@/components/ui/CTABanner";
@@ -7,80 +7,79 @@ import { client } from "@/lib/sanity/client";
 import { recentBlogPostsQuery } from "@/lib/sanity/queries";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Shield, TrendingUp, Cross, BarChart2, Building2, BookOpen } from "lucide-react";
 
 const services = [
   {
-    icon: "🛡️",
+    icon: <Shield size={28} strokeWidth={1.5} />,
     title: "Berufsunfähigkeitsversicherung",
     description:
-      "Dein persönlicher Bodyguard für deine Arbeitskraft. Schütze dein größtes Kapital — deine Fähigkeit zu arbeiten.",
+      "Deine Arbeitskraft ist dein größtes Kapital. Ich finde die Absicherung, die wirklich zu deinem Beruf passt.",
     href: "/leistungen/berufsunfaehigkeit",
   },
   {
-    icon: "📈",
-    title: "Altersvorsorge & Ruhestandsplanung",
+    icon: <TrendingUp size={28} strokeWidth={1.5} />,
+    title: "Altersvorsorge",
     description:
-      "Sequence-of-Return-Risiko, ETF-Strategien, Entnahmekonzepte. Damit du im Alter wirklich frei bist.",
+      "ETF-Strategien, Entnahmekonzepte, Sequence-of-Return-Risiko. Damit du im Alter wirklich frei bist.",
     href: "/leistungen/altersvorsorge",
   },
   {
-    icon: "🏥",
+    icon: <Cross size={28} strokeWidth={1.5} />,
     title: "Private Krankenversicherung",
     description:
-      "Für Kammerberufler oft Pflicht und Chance zugleich. Ich zeige dir, wann und wie PKV sich wirklich lohnt.",
+      "Für Kammerberufler oft Pflicht und Chance zugleich. Eine ehrliche Einschätzung — ohne Schönfärberei.",
     href: "/leistungen/krankenversicherung",
   },
   {
-    icon: "💰",
-    title: "Vermögensaufbau & Kapitalanlage",
+    icon: <BarChart2 size={28} strokeWidth={1.5} />,
+    title: "Vermögensaufbau",
     description:
-      "ETFs, Depot-Aufbau, Geldanlage vom ersten Gehalt an. Einfach, transparent und renditeorientiert.",
+      "Vom ersten Depot bis zur langfristigen Strategie. Transparent, renditeorientiert, auf dich zugeschnitten.",
     href: "/leistungen/vermoegensaufbau",
   },
   {
-    icon: "🏠",
+    icon: <Building2 size={28} strokeWidth={1.5} />,
     title: "Immobilienfinanzierung",
     description:
-      "Eigenkapital planen, Finanzierung vergleichen, Erstgespräch kostenlos. Dein Weg zur eigenen Immobilie.",
+      "Eigenkapital planen, Finanzierung vergleichen. Dein Weg zur eigenen Immobilie — Schritt für Schritt.",
     href: "/leistungen/immobilienfinanzierung",
   },
   {
-    icon: "🎓",
-    title: "Karriere & Finanzplanung für Studis",
+    icon: <BookOpen size={28} strokeWidth={1.5} />,
+    title: "Karriere & Finanzplanung",
     description:
       "Brutto/Netto, Steuererklärung, Gehalt verhandeln. Finanzielle Grundlagen für deinen Karrierestart.",
     href: "/leistungen/karriere-finanzplanung",
   },
 ];
 
+const stats = [
+  { value: "1,5", label: "Studiumsabschluss DHBW" },
+  { value: "50+", label: "Jahre MLP am Markt" },
+  { value: "10k+", label: "Follower auf LinkedIn" },
+  { value: "100%", label: "Unverbindlich & kostenlos" },
+];
+
 const steps = [
   {
     number: "01",
-    title: "Kostenloses Erstgespräch",
+    title: "Erstgespräch",
     description:
       "30 Minuten, kein Verkaufsdruck. Ich lerne deine Situation kennen und du weißt danach, wo du stehst.",
   },
   {
     number: "02",
-    title: "Individuelle Analyse",
+    title: "Analyse",
     description:
-      "Ich analysiere deine aktuelle Situation, deine Ziele und zeige dir konkrete Handlungsoptionen auf.",
+      "Ich analysiere deine aktuelle Situation und zeige dir konkrete Handlungsoptionen auf.",
   },
   {
     number: "03",
-    title: "Maßgeschneiderte Strategie",
+    title: "Strategie",
     description:
-      "Kein Standard-Produkt. Eine Strategie, die wirklich zu deinem Leben, deinen Zielen und deinem Beruf passt.",
+      "Kein Standardprodukt. Eine Strategie, die wirklich zu deinem Leben, deinen Zielen und deinem Beruf passt.",
   },
-];
-
-const trustItems = [
-  { icon: "🎓", label: "B.A. DHBW Mannheim", value: "Note 1,5" },
-  { icon: "🏢", label: "MLP Finanzberatung SE", value: "50+ Jahre Erfahrung" },
-  { icon: "📍", label: "Frankfurt am Main", value: "Persönlich & digital" },
-  { icon: "💬", label: "LinkedIn Community", value: "10.000+ Follower" },
 ];
 
 interface BlogPost {
@@ -106,21 +105,19 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero */}
       <AnimatedHero
         headline="Finanzielle Klarheit für Kammerberufler & Ingenieure"
         subline="Von 'Ich mach das später' zu 'Hab ich geregelt' — mit maßgeschneiderten Finanzstrategien, die zu deinem Leben passen."
       />
 
-      {/* Trust Bar */}
-      <section className="bg-navy/5 border-y border-border py-8 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {trustItems.map((item) => (
-              <div key={item.label} className="flex flex-col items-center text-center gap-1">
-                <span className="text-2xl">{item.icon}</span>
-                <span className="text-sm font-semibold text-darktext">{item.value}</span>
-                <span className="text-xs text-gray-subtle">{item.label}</span>
+      {/* Stats */}
+      <section className="bg-white border-b border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col items-center text-center px-6 first:pl-0 last:pr-0">
+                <span className="font-heading text-3xl font-bold text-darktext">{stat.value}</span>
+                <span className="text-xs text-gray-subtle mt-1 leading-tight">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -128,140 +125,137 @@ export default async function HomePage() {
       </section>
 
       {/* Über mich Teaser */}
-      <section className="py-20 px-4 bg-warmwhite">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-warmwhite">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="relative">
-            <div className="relative w-full aspect-[4/5] max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-navy/10">
+            <div className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-navy/5 overflow-hidden">
               <Image
-                src="/levi-placeholder.jpg"
+                src="/images/levi-business.jpeg"
                 alt="Levi Rudolph — Financial Advisor Frankfurt"
                 fill
-                className="object-cover"
-                priority={false}
+                className="object-cover object-top"
               />
-              {/* Gold accent border */}
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-gold/20" />
-            </div>
-            {/* Floating badge */}
-            <div className="absolute bottom-4 left-4 bg-navy text-warmwhite rounded-xl px-4 py-3 shadow-xl">
-              <p className="text-xs text-gold font-semibold uppercase tracking-wide">Financial Advisor</p>
-              <p className="text-sm font-bold">MLP · Frankfurt</p>
             </div>
           </div>
 
-          <div className="flex flex-col gap-6">
-            <SectionHeading
-              tag="Über mich"
-              title="Ich bin Levi — Finanzberater auf Augenhöhe"
-              subtitle="Kein Versicherungsblabla, keine 08/15-Lösungen. Beratung, die wirklich zu dir passt."
-            />
-            <p className="text-gray-subtle leading-relaxed">
-              Als Absolvent der DHBW Mannheim (Note 1,5) und Financial Advisor bei MLP kenne ich
-              beide Seiten: die Theorie aus dem Studium und die Praxis aus der täglichen Beratung.
-              Meine Zielgruppe sind angehende Kammerberufler und Ingenieure — Menschen wie du,
-              die kluge Entscheidungen treffen wollen.
+          <div className="flex flex-col gap-8">
+            <p className="text-xs font-semibold tracking-widest uppercase text-gold">
+              Über mich
             </p>
-            <div className="flex flex-col gap-3">
-              {[
-                "Persönliche Beratung auf Augenhöhe",
-                "Keine versteckten Provisionen",
-                "Langfristige Partnerschaft statt Einmalberatung",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-darktext">
-                  <CheckCircle2 size={18} className="text-gold shrink-0" />
-                  <span className="text-sm font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-            <Button
-              render={<Link href="/ueber-mich" />}
-              variant="outline"
-              className="w-fit border-navy text-navy hover:bg-navy hover:text-warmwhite rounded-full px-6 gap-2 mt-2"
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-darktext leading-tight">
+              Beratung auf Augenhöhe — nicht von der Stange
+            </h2>
+            <p className="text-gray-subtle leading-relaxed text-lg">
+              Ich bin Levi Rudolph, Financial Advisor bei MLP in Frankfurt. Kein
+              Versicherungsblabla, keine 08/15-Lösungen. Ich bin Absolvent der DHBW
+              Mannheim und berate täglich angehende Kammerberufler und Ingenieure —
+              Menschen, die kluge Entscheidungen treffen wollen.
+            </p>
+            <Link
+              href="/ueber-mich"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-darktext border-b border-darktext pb-0.5 w-fit hover:text-gold hover:border-gold transition-colors duration-200"
             >
-              Lern mich kennen
-              <ArrowRight size={16} />
-            </Button>
+              Meine Geschichte
+              <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 px-4 bg-white">
+      {/* Video Teaser */}
+      <VideoTeaser
+        headline="Beratung, die wirklich passt"
+        subline="In einem kurzen Erstgespräch lerne ich deine Situation kennen — und du erfährst, wie ich dir konkret helfen kann. Kein Druck, kein Script."
+        label="Meine Arbeitsweise"
+      />
+
+      {/* Services */}
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-12">
-            <SectionHeading
-              tag="Leistungen"
-              title="Was ich für dich tue"
-              subtitle="Maßgeschneiderte Beratung in den Bereichen, die für deinen Lebensabschnitt wirklich zählen."
-              centered
-            />
+          <div className="mb-16 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
+                Leistungen
+              </p>
+              <h2 className="font-heading text-4xl sm:text-5xl font-bold text-darktext leading-tight">
+                Was ich für dich tue
+              </h2>
+            </div>
+            <Link
+              href="/leistungen"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-darktext border-b border-darktext pb-0.5 w-fit hover:text-gold hover:border-gold transition-colors duration-200 shrink-0"
+            >
+              Alle Leistungen
+              <ArrowRight size={14} />
+            </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-border">
             {services.map((service) => (
-              <ServiceCard key={service.href} {...service} />
+              <div key={service.href} className="border-b border-r border-border">
+                <ServiceCard {...service} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="py-20 px-4 bg-navy">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-navy">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-12">
-            <SectionHeading
-              tag="So funktioniert's"
-              title="Von der Idee zur Strategie"
-              subtitle="Drei Schritte zu deiner persönlichen Finanzstrategie."
-              centered
-              light
-            />
+          <div className="mb-20">
+            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
+              So funktioniert's
+            </p>
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-warmwhite leading-tight">
+              Drei Schritte zu deiner Finanzstrategie
+            </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {steps.map((step, i) => (
-              <div key={step.number} className="flex flex-col gap-4 relative">
-                {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-5 left-[calc(100%+1rem)] w-8 h-0.5 bg-gold/30" />
-                )}
-                <div className="text-5xl font-bold font-heading text-gold/20 leading-none">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            {steps.map((step) => (
+              <div key={step.number} className="flex flex-col gap-5">
+                <span className="font-heading text-6xl font-bold text-warmwhite/10 leading-none select-none">
                   {step.number}
-                </div>
+                </span>
                 <h3 className="font-heading text-xl font-bold text-warmwhite">
                   {step.title}
                 </h3>
-                <p className="text-warmwhite/60 text-sm leading-relaxed">
+                <p className="text-warmwhite/50 text-sm leading-relaxed">
                   {step.description}
                 </p>
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-12">
-            <Button
-              render={<Link href="/termin" />}
-              className="bg-gold text-navy font-semibold hover:bg-gold-light rounded-full px-8 py-6 text-base gap-2"
+          <div className="mt-16 pt-16 border-t border-white/10">
+            <Link
+              href="/termin"
+              className="inline-flex items-center gap-3 text-sm font-semibold text-gold hover:text-gold-light transition-colors duration-200"
             >
-              <CheckCircle2 size={18} />
-              Jetzt Erstgespräch buchen
-            </Button>
+              Kostenloses Erstgespräch buchen
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Blog Preview */}
       {recentPosts.length > 0 && (
-        <section className="py-20 px-4 bg-warmwhite">
+        <section className="py-32 px-4 sm:px-6 lg:px-8 bg-warmwhite">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-end justify-between mb-12">
-              <SectionHeading
-                tag="Blog"
-                title="Aktuelle Beiträge"
-                subtitle="Finanzwissen, das wirklich hilft."
-              />
+            <div className="flex items-end justify-between mb-16">
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
+                  Blog
+                </p>
+                <h2 className="font-heading text-4xl sm:text-5xl font-bold text-darktext leading-tight">
+                  Aktuelle Beiträge
+                </h2>
+              </div>
               <Link
                 href="/blog"
-                className="hidden sm:flex items-center gap-2 text-sm font-semibold text-gold hover:text-gold-light transition-colors"
+                className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-darktext border-b border-darktext pb-0.5 hover:text-gold hover:border-gold transition-colors duration-200"
               >
                 Alle Beiträge
-                <ArrowRight size={16} />
+                <ArrowRight size={14} />
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -269,16 +263,10 @@ export default async function HomePage() {
                 <BlogCard key={post._id} post={post} />
               ))}
             </div>
-            <div className="flex justify-center mt-8 sm:hidden">
-              <Button render={<Link href="/blog" />} variant="outline" className="rounded-full gap-2">
-                Alle Beiträge <ArrowRight size={16} />
-              </Button>
-            </div>
           </div>
         </section>
       )}
 
-      {/* CTA Banner */}
       <CTABanner />
     </>
   );

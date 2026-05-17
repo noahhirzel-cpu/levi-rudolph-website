@@ -34,7 +34,7 @@
   --color-ring: var(--ring);
 
   /* Brand Fonts */
-  --font-heading: var(--font-playfair);
+  --font-heading: var(--font-inter);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
@@ -94,11 +94,15 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   html {
     @apply font-sans;
   }
-  h1, h2, h3, h4 {
-    @apply font-heading;
+  /* Quotes keep Playfair as accent */
+  blockquote {
+    font-family: var(--font-playfair);
   }
 }
