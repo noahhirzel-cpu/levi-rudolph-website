@@ -3,6 +3,7 @@ import { VideoTeaser } from "@/components/sections/VideoTeaser";
 import { LeistungExpandCard } from "@/components/ui/LeistungExpandCard";
 import { BlogCard } from "@/components/ui/BlogCard";
 import { CTABanner } from "@/components/ui/CTABanner";
+import { FadeUp } from "@/components/ui/FadeUp";
 import { client } from "@/lib/sanity/client";
 import { recentBlogPostsQuery } from "@/lib/sanity/queries";
 import Image from "next/image";
@@ -105,15 +106,15 @@ export default async function HomePage() {
         subline="Von 'Ich mach das später' zu 'Hab ich geregelt' — mit maßgeschneiderten Finanzstrategien, die zu deinem Leben passen."
       />
 
-      {/* Stats — Apple-style huge numbers */}
+      {/* Stats */}
       <section className="bg-white border-b border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center text-center px-6 first:pl-0 last:pr-0">
+            {stats.map((stat, i) => (
+              <FadeUp key={stat.label} delay={i * 0.1} className="flex flex-col items-center text-center px-6 first:pl-0 last:pr-0">
                 <span className="font-heading text-5xl sm:text-6xl font-bold text-darktext">{stat.value}</span>
                 <span className="text-sm text-gray-subtle mt-2 leading-tight">{stat.label}</span>
-              </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -122,7 +123,7 @@ export default async function HomePage() {
       {/* Über mich Teaser */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 bg-warmwhite">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <div className="relative">
+          <FadeUp>
             <div className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-navy/5 overflow-hidden">
               <Image
                 src="/images/levi-business.jpeg"
@@ -132,9 +133,9 @@ export default async function HomePage() {
                 sizes="(max-width: 1024px) 384px, 384px"
               />
             </div>
-          </div>
+          </FadeUp>
 
-          <div className="flex flex-col gap-8">
+          <FadeUp delay={0.15} className="flex flex-col gap-8">
             <p className="text-xs font-semibold tracking-widest uppercase text-gold">
               Über mich
             </p>
@@ -154,7 +155,7 @@ export default async function HomePage() {
               Meine Geschichte
               <ArrowRight size={14} />
             </Link>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -169,7 +170,7 @@ export default async function HomePage() {
 
       {/* Finanzcheck Promo */}
       <section className="bg-navy py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <FadeUp className="max-w-6xl mx-auto">
           <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-4">Kostenlos</p>
           <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-warmwhite leading-tight mb-6 max-w-2xl">
             Wie steht's um deine Finanzen?
@@ -179,18 +180,18 @@ export default async function HomePage() {
           </p>
           <Link
             href="/finanzcheck"
-            className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-8 py-4 text-sm tracking-wide hover:bg-gold-light active:opacity-90 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-colors duration-200"
+            className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-8 py-4 text-sm tracking-wide hover:brightness-110 active:brightness-125 outline-none focus:outline-none transition-all duration-200"
           >
             360° Finanzcheck starten
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </FadeUp>
       </section>
 
       {/* Services */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-16 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <FadeUp className="mb-16 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
                 Leistungen
@@ -206,16 +207,17 @@ export default async function HomePage() {
               Alle Leistungen
               <ArrowRight size={14} />
             </Link>
-          </div>
+          </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-            {services.map((service) => (
-              <LeistungExpandCard
-                key={service.slug}
-                slug={service.slug}
-                title={service.title}
-                description={service.description}
-                imageSrc={service.imageSrc}
-              />
+            {services.map((service, i) => (
+              <FadeUp key={service.slug} delay={i * 0.08}>
+                <LeistungExpandCard
+                  slug={service.slug}
+                  title={service.title}
+                  description={service.description}
+                  imageSrc={service.imageSrc}
+                />
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -224,17 +226,17 @@ export default async function HomePage() {
       {/* How it works */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 bg-navy">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-20">
+          <FadeUp className="mb-20">
             <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
               So funktioniert's
             </p>
             <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-warmwhite leading-tight">
               Drei Schritte zu deiner Finanzstrategie
             </h2>
-          </div>
+          </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-            {steps.map((step) => (
-              <div key={step.number} className="flex flex-col gap-5">
+            {steps.map((step, i) => (
+              <FadeUp key={step.number} delay={i * 0.15} className="flex flex-col gap-5">
                 <span className="font-heading text-8xl font-bold text-warmwhite/10 leading-none select-none">
                   {step.number}
                 </span>
@@ -244,10 +246,10 @@ export default async function HomePage() {
                 <p className="text-warmwhite/70 text-sm leading-relaxed">
                   {step.description}
                 </p>
-              </div>
+              </FadeUp>
             ))}
           </div>
-          <div className="mt-16 pt-16 border-t border-white/10">
+          <FadeUp className="mt-16 pt-16 border-t border-white/10">
             <Link
               href="/termin"
               className="inline-flex items-center gap-3 text-sm font-semibold text-gold hover:text-gold-light transition-colors duration-200"
@@ -255,7 +257,7 @@ export default async function HomePage() {
               Kostenloses Erstgespräch buchen
               <ArrowRight size={16} />
             </Link>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -275,7 +277,7 @@ export default async function HomePage() {
       {recentPosts.length > 0 && (
         <section className="py-32 px-4 sm:px-6 lg:px-8 bg-warmwhite">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-end justify-between mb-16">
+            <FadeUp className="flex items-end justify-between mb-16">
               <div>
                 <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
                   Blog
@@ -291,10 +293,12 @@ export default async function HomePage() {
                 Alle Beiträge
                 <ArrowRight size={14} />
               </Link>
-            </div>
+            </FadeUp>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {recentPosts.map((post) => (
-                <BlogCard key={post._id} post={post} />
+              {recentPosts.map((post, i) => (
+                <FadeUp key={post._id} delay={i * 0.1}>
+                  <BlogCard post={post} />
+                </FadeUp>
               ))}
             </div>
           </div>

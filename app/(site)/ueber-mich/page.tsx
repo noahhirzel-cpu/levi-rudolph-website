@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CTABanner } from "@/components/ui/CTABanner";
+import { FadeUp } from "@/components/ui/FadeUp";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -95,7 +96,7 @@ export default function UeberMichPage() {
 
       {/* About text */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-warmwhite">
-        <div className="max-w-4xl mx-auto space-y-5 text-gray-subtle leading-relaxed text-lg">
+        <FadeUp className="max-w-4xl mx-auto space-y-5 text-gray-subtle leading-relaxed text-lg">
           <p>
             Nach meinem dualen Studium an der DHBW Mannheim habe ich
             mich entschieden, selbstständig zu beraten — weil echte Beratung keine
@@ -108,7 +109,7 @@ export default function UeberMichPage() {
           <blockquote className="border-l-2 border-gold pl-6 py-1 text-darktext font-heading text-xl italic leading-snug">
             &ldquo;Kein Versicherungsblabla. Echte Beratung, die zu deinem Leben passt.&rdquo;
           </blockquote>
-        </div>
+        </FadeUp>
       </section>
 
       {/* Beratungs-Foto — volle Breite */}
@@ -134,8 +135,8 @@ export default function UeberMichPage() {
             Werdegang
           </p>
           <div className="flex flex-col divide-y divide-border">
-            {timeline.map((item) => (
-              <div key={item.title} className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-8">
+            {timeline.map((item, i) => (
+              <FadeUp key={item.title} delay={i * 0.1} className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-8">
                 <div>
                   <span className="text-xs font-semibold text-gold uppercase tracking-wide">
                     {item.year}
@@ -150,7 +151,7 @@ export default function UeberMichPage() {
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -162,7 +163,7 @@ export default function UeberMichPage() {
           <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-12">
             Expertise
           </p>
-          <div className="flex flex-wrap gap-3">
+          <FadeUp className="flex flex-wrap gap-3">
             {skills.map((skill) => (
               <span
                 key={skill}
@@ -171,7 +172,7 @@ export default function UeberMichPage() {
                 {skill}
               </span>
             ))}
-          </div>
+          </FadeUp>
         </div>
       </section>
 

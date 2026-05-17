@@ -70,7 +70,7 @@ export function AnimatedHero({
           >
             <Button
               render={<Link href={ctaHref} />}
-              className="w-full sm:w-auto bg-gold text-navy font-semibold hover:bg-gold-light active:bg-gold-light active:opacity-90 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-colors duration-200 rounded-none px-8 py-5 text-sm tracking-wide"
+              className="w-full sm:w-auto bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-all duration-200 rounded-none px-8 py-5 text-sm tracking-wide"
             >
               {ctaText}
             </Button>
