@@ -1,57 +1,51 @@
 import { AnimatedHero } from "@/components/sections/AnimatedHero";
 import { VideoTeaser } from "@/components/sections/VideoTeaser";
-import { ServiceCard } from "@/components/ui/ServiceCard";
+import { LeistungExpandCard } from "@/components/ui/LeistungExpandCard";
 import { BlogCard } from "@/components/ui/BlogCard";
 import { CTABanner } from "@/components/ui/CTABanner";
 import { client } from "@/lib/sanity/client";
 import { recentBlogPostsQuery } from "@/lib/sanity/queries";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, TrendingUp, Cross, BarChart2, Building2, BookOpen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 
 const services = [
   {
-    icon: <Shield size={28} strokeWidth={1.5} />,
+    slug: "berufsunfaehigkeit",
     title: "Berufsunfähigkeitsversicherung",
-    description:
-      "Deine Arbeitskraft ist dein größtes Kapital. Ich finde die Absicherung, die wirklich zu deinem Beruf passt.",
-    href: "/leistungen/berufsunfaehigkeit",
+    description: "Deine Arbeitskraft ist dein größtes Kapital. Ich finde die Absicherung, die wirklich zu deinem Beruf passt.",
+    imageSrc: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&fit=crop",
   },
   {
-    icon: <TrendingUp size={28} strokeWidth={1.5} />,
+    slug: "altersvorsorge",
     title: "Altersvorsorge",
-    description:
-      "ETF-Strategien, Entnahmekonzepte, Sequence-of-Return-Risiko. Damit du im Alter wirklich frei bist.",
-    href: "/leistungen/altersvorsorge",
+    description: "ETF-Strategien, Entnahmekonzepte, Sequence-of-Return-Risiko. Damit du im Alter wirklich frei bist.",
+    imageSrc: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&q=80&fit=crop",
   },
   {
-    icon: <Cross size={28} strokeWidth={1.5} />,
+    slug: "krankenversicherung",
     title: "Private Krankenversicherung",
-    description:
-      "Für Kammerberufler oft Pflicht und Chance zugleich. Eine ehrliche Einschätzung — ohne Schönfärberei.",
-    href: "/leistungen/krankenversicherung",
+    description: "Für Kammerberufler oft Pflicht und Chance zugleich. Eine ehrliche Einschätzung — ohne Schönfärberei.",
+    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop",
   },
   {
-    icon: <BarChart2 size={28} strokeWidth={1.5} />,
+    slug: "vermoegensaufbau",
     title: "Vermögensaufbau",
-    description:
-      "Vom ersten Depot bis zur langfristigen Strategie. Transparent, renditeorientiert, auf dich zugeschnitten.",
-    href: "/leistungen/vermoegensaufbau",
+    description: "Vom ersten Depot bis zur langfristigen Strategie. Transparent, renditeorientiert, auf dich zugeschnitten.",
+    imageSrc: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&fit=crop",
   },
   {
-    icon: <Building2 size={28} strokeWidth={1.5} />,
+    slug: "immobilienfinanzierung",
     title: "Immobilienfinanzierung",
-    description:
-      "Eigenkapital planen, Finanzierung vergleichen. Dein Weg zur eigenen Immobilie — Schritt für Schritt.",
-    href: "/leistungen/immobilienfinanzierung",
+    description: "Eigenkapital planen, Finanzierung vergleichen. Dein Weg zur eigenen Immobilie — Schritt für Schritt.",
+    imageSrc: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80&fit=crop",
   },
   {
-    icon: <BookOpen size={28} strokeWidth={1.5} />,
+    slug: "karriere-finanzplanung",
     title: "Karriere & Finanzplanung",
-    description:
-      "Brutto/Netto, Steuererklärung, Gehalt verhandeln. Finanzielle Grundlagen für deinen Karrierestart.",
-    href: "/leistungen/karriere-finanzplanung",
+    description: "Brutto/Netto, Steuererklärung, Gehalt verhandeln. Finanzielle Grundlagen für deinen Karrierestart.",
+    imageSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&fit=crop",
   },
 ];
 
@@ -213,11 +207,15 @@ export default async function HomePage() {
               <ArrowRight size={14} />
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {services.map((service) => (
-              <div key={service.href} className="border-b border-r border-border">
-                <ServiceCard {...service} />
-              </div>
+              <LeistungExpandCard
+                key={service.slug}
+                slug={service.slug}
+                title={service.title}
+                description={service.description}
+                imageSrc={service.imageSrc}
+              />
             ))}
           </div>
         </div>
