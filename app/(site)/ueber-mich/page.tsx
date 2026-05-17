@@ -80,15 +80,15 @@ export default function UeberMichPage() {
         </div>
 
         {/* Right — Photo */}
-        <div className="relative min-h-[60vh] lg:min-h-screen">
+        <div className="relative min-h-[70vh] lg:min-h-screen bg-navy">
           <Image
             src="/images/levi-business.jpeg"
             alt="Levi Rudolph — Financial Advisor Frankfurt"
             fill
-            className="object-cover object-[center_15%]"
+            className="object-contain object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/20 to-transparent lg:block hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/10 to-transparent lg:block hidden" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-transparent lg:hidden" />
         </div>
       </section>
