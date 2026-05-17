@@ -37,11 +37,11 @@ export function AnimatedHero({
   return (
     <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden">
       {/* Left — Text */}
-      <div className="relative z-10 flex flex-col justify-center px-8 sm:px-12 lg:px-16 xl:px-20 pt-32 pb-20 lg:py-0">
+      <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-36 pb-20 lg:py-0">
         <motion.div
           initial="hidden"
           animate="visible"
-          className="flex flex-col gap-8 max-w-xl"
+          className="flex flex-col gap-6 sm:gap-8 max-w-xl"
         >
           <motion.p
             variants={fade(0.1)}
@@ -52,14 +52,14 @@ export function AnimatedHero({
 
           <motion.h1
             variants={fade(0.2)}
-            className="text-5xl sm:text-6xl xl:text-7xl font-bold text-warmwhite leading-[1.05] tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-warmwhite leading-[1.05] tracking-tight"
           >
             {headline}
           </motion.h1>
 
           <motion.p
             variants={fade(0.35)}
-            className="text-lg text-warmwhite/50 leading-relaxed"
+            className="text-base sm:text-lg text-warmwhite/60 leading-relaxed"
           >
             {subline}
           </motion.p>
@@ -70,14 +70,14 @@ export function AnimatedHero({
           >
             <Button
               render={<Link href={ctaHref} />}
-              className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-8 py-5 text-sm tracking-wide"
+              className="w-full sm:w-auto bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-8 py-5 text-sm tracking-wide"
             >
               {ctaText}
             </Button>
             <Button
               render={<Link href={secondaryCtaHref} />}
               variant="ghost"
-              className="text-warmwhite/60 hover:text-warmwhite hover:bg-transparent rounded-none px-8 py-5 text-sm tracking-wide gap-2 border border-white/10 hover:border-white/30 transition-colors duration-200"
+              className="w-full sm:w-auto text-warmwhite/60 hover:text-warmwhite hover:bg-transparent rounded-none px-8 py-5 text-sm tracking-wide gap-2 border border-white/10 hover:border-white/30 transition-colors duration-200"
             >
               {secondaryCtaText}
               <ArrowRight size={14} />
@@ -91,7 +91,7 @@ export function AnimatedHero({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.1 }}
-        className="relative min-h-[50vh] lg:min-h-screen"
+        className="relative min-h-[55vh] lg:min-h-screen"
       >
         <Image
           src="/images/levi-business.jpeg"
@@ -111,7 +111,7 @@ export function AnimatedHero({
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-8 sm:left-12 lg:left-16 xl:left-20 flex flex-col items-start gap-2 z-10"
+        className="absolute bottom-8 left-6 sm:left-12 lg:left-16 xl:left-20 flex flex-col items-start gap-2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}

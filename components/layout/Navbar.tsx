@@ -41,28 +41,28 @@ export function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-[72px] lg:h-[80px]">
           {/* Logo */}
           <Link
             href="/"
             className="flex flex-col leading-none group"
             aria-label="Levi Rudolph — Startseite"
           >
-            <span className="font-heading text-xl font-bold text-warmwhite">
+            <span className="font-heading text-2xl font-bold text-warmwhite tracking-tight">
               Levi Rudolph
             </span>
-            <span className="text-[11px] text-gold tracking-widest uppercase font-medium">
+            <span className="text-[11px] text-gold tracking-widest uppercase font-medium mt-0.5">
               Financial Advisor
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 relative group ${
+                className={`text-base font-medium transition-colors duration-200 relative group py-1 ${
                   pathname === link.href
                     ? "text-gold"
                     : "text-warmwhite/80 hover:text-warmwhite"
@@ -82,7 +82,7 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Button
               render={<Link href="/termin" />}
-              className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-6"
+              className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-6 py-2.5 text-sm"
             >
               Termin buchen
             </Button>
@@ -95,7 +95,7 @@ export function Navbar() {
             aria-label={isMobileOpen ? "Menü schließen" : "Menü öffnen"}
             aria-expanded={isMobileOpen}
           >
-            {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </nav>
@@ -110,12 +110,12 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="lg:hidden bg-navy/98 backdrop-blur-md border-t border-white/10"
           >
-            <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-4">
+            <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-lg font-medium py-2 border-b border-white/10 transition-colors ${
+                  className={`text-xl font-medium py-3 border-b border-white/10 transition-colors min-h-[44px] flex items-center ${
                     pathname === link.href
                       ? "text-gold"
                       : "text-warmwhite/80 hover:text-warmwhite"
@@ -126,7 +126,7 @@ export function Navbar() {
               ))}
               <Button
                 render={<Link href="/termin" />}
-                className="mt-2 bg-gold text-navy font-semibold hover:bg-gold-light rounded-none"
+                className="mt-4 w-full bg-gold text-navy font-semibold hover:bg-gold-light rounded-none py-4 text-base"
               >
                 Termin buchen
               </Button>

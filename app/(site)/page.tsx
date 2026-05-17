@@ -222,7 +222,7 @@ export default async function HomePage() {
                 <h3 className="font-heading text-xl font-bold text-warmwhite">
                   {step.title}
                 </h3>
-                <p className="text-warmwhite/50 text-sm leading-relaxed">
+                <p className="text-warmwhite/70 text-sm leading-relaxed">
                   {step.description}
                 </p>
               </div>

@@ -21,7 +21,7 @@ export function CTABanner({
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-warmwhite leading-tight max-w-2xl">
           {heading}
         </h2>
-        <p className="text-warmwhite/50 text-lg max-w-xl">{subtext}</p>
+        <p className="text-warmwhite/70 text-lg max-w-xl">{subtext}</p>
         <Button
           render={<Link href={buttonHref} />}
           className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide gap-2"
