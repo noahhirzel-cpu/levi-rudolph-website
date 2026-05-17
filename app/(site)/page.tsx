@@ -56,7 +56,7 @@ const services = [
 ];
 
 const stats = [
-  { value: "1,5", label: "Studiumsabschluss DHBW" },
+  { value: "30 Min", label: "Kostenloses Erstgespräch" },
   { value: "50+", label: "Jahre MLP am Markt" },
   { value: "10k+", label: "Follower auf LinkedIn" },
   { value: "100%", label: "Unverbindlich & kostenlos" },
@@ -169,19 +169,13 @@ export default async function HomePage() {
         headline="Beratung, die wirklich passt"
         subline="In einem kurzen Erstgespräch lerne ich deine Situation kennen — und du erfährst, wie ich dir konkret helfen kann. Kein Druck, kein Script."
         label="Meine Arbeitsweise"
+        posterSrc="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800&q=80&fit=crop"
+        posterAlt="Finanzberatung Gespräch"
       />
 
-      {/* Finanzcheck Promo — full bleed */}
-      <section className="relative h-[60vh] flex items-center overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80&fit=crop"
-          alt="360° Finanzcheck"
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-navy/75" />
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      {/* Finanzcheck Promo */}
+      <section className="bg-navy py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-4">Kostenlos</p>
           <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-warmwhite leading-tight mb-6 max-w-2xl">
             Wie steht's um deine Finanzen?
@@ -191,7 +185,7 @@ export default async function HomePage() {
           </p>
           <Link
             href="/finanzcheck"
-            className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-8 py-4 text-sm tracking-wide hover:bg-gold-light transition-colors duration-200"
+            className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-8 py-4 text-sm tracking-wide hover:bg-gold-light active:opacity-80 transition-colors duration-200"
           >
             360° Finanzcheck starten
             <ArrowRight size={16} />

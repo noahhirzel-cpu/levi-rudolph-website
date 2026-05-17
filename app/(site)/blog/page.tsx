@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { client } from "@/lib/sanity/client";
 import { blogPostsQuery } from "@/lib/sanity/queries";
 import { BlogCard } from "@/components/ui/BlogCard";
@@ -35,18 +34,9 @@ export default async function BlogPage() {
 
   return (
     <>
-      {/* Hero mit Hintergrundbild */}
-      <section className="relative pt-[72px] lg:pt-[80px] min-h-[50vh] flex items-end overflow-hidden bg-navy">
-        <Image
-          src="https://images.unsplash.com/photo-1493612276216-ee3925520721?w=1400&q=80&fit=crop"
-          alt="Finanzwissen Blog von Levi Rudolph"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/50 to-navy" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-20">
+      {/* Hero */}
+      <section className="bg-navy pt-40 pb-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
           <span className="text-xs font-semibold tracking-widest uppercase text-gold mb-4 block">
             Blog
           </span>

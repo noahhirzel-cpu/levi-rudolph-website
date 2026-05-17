@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Über mich",
   description:
-    "Levi Rudolph — Financial Advisor bei MLP Frankfurt. B.A. DHBW Mannheim Note 1,5. Finanzberatung auf Augenhöhe für Kammerberufler und Ingenieure.",
+    "Levi Rudolph — Financial Advisor bei MLP Frankfurt. Finanzberatung auf Augenhöhe für Kammerberufler und Ingenieure.",
 };
 
 const skills = [
@@ -35,7 +35,7 @@ const timeline = [
   {
     year: "2022 – 2025",
     title: "B.A. Banking & Financial Support Services",
-    org: "DHBW Mannheim · Abschluss Note 1,5",
+    org: "DHBW Mannheim · B.A. Banking & Finance",
     description:
       "Duales Studium in Kooperation mit MLP Finanzberatung SE. Schwerpunkte: Produktmanagement, MLP Banking, Beratungssegmente.",
   },
@@ -49,7 +49,7 @@ const timeline = [
   {
     year: "bis 2022",
     title: "Abitur",
-    org: "Max-Weber-Schule Sinsheim · Note 1,3",
+    org: "Max-Weber-Schule Sinsheim",
     description: "Schwerpunkt Wirtschaft und Betriebswirtschaftslehre.",
   },
 ];
@@ -97,7 +97,7 @@ export default function UeberMichPage() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-warmwhite">
         <div className="max-w-4xl mx-auto space-y-5 text-gray-subtle leading-relaxed text-lg">
           <p>
-            Nach meinem dualen Studium an der DHBW Mannheim (B.A. Banking, Note 1,5) habe ich
+            Nach meinem dualen Studium an der DHBW Mannheim habe ich
             mich entschieden, selbstständig zu beraten — weil echte Beratung keine
             Einheitslösungen kennt.
           </p>
