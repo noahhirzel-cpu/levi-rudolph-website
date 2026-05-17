@@ -111,14 +111,14 @@ export default async function HomePage() {
         subline="Von 'Ich mach das später' zu 'Hab ich geregelt' — mit maßgeschneiderten Finanzstrategien, die zu deinem Leben passen."
       />
 
-      {/* Stats */}
+      {/* Stats — Apple-style huge numbers */}
       <section className="bg-white border-b border-border">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center text-center px-6 first:pl-0 last:pr-0">
-                <span className="font-heading text-3xl font-bold text-darktext">{stat.value}</span>
-                <span className="text-xs text-gray-subtle mt-1 leading-tight">{stat.label}</span>
+                <span className="font-heading text-5xl sm:text-6xl font-bold text-darktext">{stat.value}</span>
+                <span className="text-sm text-gray-subtle mt-2 leading-tight">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -135,6 +135,7 @@ export default async function HomePage() {
                 alt="Levi Rudolph — Financial Advisor Frankfurt"
                 fill
                 className="object-cover object-top"
+                sizes="(max-width: 1024px) 384px, 384px"
               />
             </div>
           </div>
@@ -143,7 +144,7 @@ export default async function HomePage() {
             <p className="text-xs font-semibold tracking-widest uppercase text-gold">
               Über mich
             </p>
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-darktext leading-tight">
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-darktext leading-tight">
               Beratung auf Augenhöhe — nicht von der Stange
             </h2>
             <p className="text-gray-subtle leading-relaxed text-lg">
@@ -172,6 +173,34 @@ export default async function HomePage() {
         posterAlt="Professionelle Finanzberatung mit Levi Rudolph"
       />
 
+      {/* Finanzcheck Promo — full bleed */}
+      <section className="relative h-[60vh] flex items-center overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80&fit=crop"
+          alt="360° Finanzcheck"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-navy/75" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-4">Kostenlos</p>
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-warmwhite leading-tight mb-6 max-w-2xl">
+            Wie steht's um deine Finanzen?
+          </h2>
+          <p className="text-warmwhite/70 text-lg mb-8 max-w-xl leading-relaxed">
+            In 15 Minuten weißt du, wo du stehst — bei BU, Altersvorsorge und Kapitalanlage.
+          </p>
+          <Link
+            href="/finanzcheck"
+            className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-8 py-4 text-sm tracking-wide hover:bg-gold-light transition-colors duration-200"
+          >
+            360° Finanzcheck starten
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -180,7 +209,7 @@ export default async function HomePage() {
               <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
                 Leistungen
               </p>
-              <h2 className="font-heading text-4xl sm:text-5xl font-bold text-darktext leading-tight">
+              <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-darktext leading-tight">
                 Was ich für dich tue
               </h2>
             </div>
@@ -209,14 +238,14 @@ export default async function HomePage() {
             <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
               So funktioniert's
             </p>
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-warmwhite leading-tight">
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-warmwhite leading-tight">
               Drei Schritte zu deiner Finanzstrategie
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {steps.map((step) => (
               <div key={step.number} className="flex flex-col gap-5">
-                <span className="font-heading text-6xl font-bold text-warmwhite/10 leading-none select-none">
+                <span className="font-heading text-8xl font-bold text-warmwhite/10 leading-none select-none">
                   {step.number}
                 </span>
                 <h3 className="font-heading text-xl font-bold text-warmwhite">
@@ -240,6 +269,18 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Full-width atmospheric image */}
+      <div className="relative h-[40vh] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80&fit=crop"
+          alt="Professionelle Finanzberatung"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-navy/40" />
+      </div>
+
       {/* Blog Preview */}
       {recentPosts.length > 0 && (
         <section className="py-32 px-4 sm:px-6 lg:px-8 bg-warmwhite">
@@ -249,7 +290,7 @@ export default async function HomePage() {
                 <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-3">
                   Blog
                 </p>
-                <h2 className="font-heading text-4xl sm:text-5xl font-bold text-darktext leading-tight">
+                <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-darktext leading-tight">
                   Aktuelle Beiträge
                 </h2>
               </div>
