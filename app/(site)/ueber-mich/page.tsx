@@ -73,7 +73,7 @@ export default function UeberMichPage() {
           </p>
           <Button
             render={<Link href="/termin" />}
-            className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide w-fit"
+            className="bg-gold text-navy font-semibold hover:bg-gold-light active:opacity-90 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide w-fit"
           >
             Lern mich kennen
           </Button>

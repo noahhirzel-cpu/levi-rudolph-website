@@ -179,7 +179,7 @@ export default async function HomePage() {
           </p>
           <Link
             href="/finanzcheck"
-            className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-8 py-4 text-sm tracking-wide hover:bg-gold-light active:opacity-80 transition-colors duration-200"
+            className="inline-flex items-center gap-2 bg-gold text-navy font-semibold px-8 py-4 text-sm tracking-wide hover:bg-gold-light active:opacity-90 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-colors duration-200"
           >
             360° Finanzcheck starten
             <ArrowRight size={16} />

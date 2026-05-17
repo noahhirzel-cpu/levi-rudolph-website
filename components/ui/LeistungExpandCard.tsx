@@ -37,7 +37,7 @@ export function LeistungExpandCard({
       {/* Default state — dark gradient at bottom, title visible */}
       <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent transition-opacity duration-400 group-hover:opacity-0" />
       <div className="absolute bottom-0 left-0 right-0 p-6 transition-opacity duration-300 group-hover:opacity-0">
-        <h3 className="font-heading text-xl font-bold text-warmwhite leading-snug">
+        <h3 className="font-heading text-xl font-bold text-warmwhite leading-snug break-words hyphens-auto" lang="de">
           {title}
         </h3>
       </div>
@@ -45,7 +45,7 @@ export function LeistungExpandCard({
       {/* Hover state — white-ish blur overlay with text */}
       <div className="absolute inset-0 bg-white/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
       <div className="absolute inset-0 flex flex-col justify-center px-8 py-8 opacity-0 group-hover:opacity-100 transition-all duration-400 delay-75 translate-y-2 group-hover:translate-y-0">
-        <h3 className="font-heading text-xl font-bold text-darktext mb-3 leading-snug">
+        <h3 className="font-heading text-xl font-bold text-darktext mb-3 leading-snug break-words hyphens-auto" lang="de">
           {title}
         </h3>
         <p className="text-gray-subtle text-sm leading-relaxed mb-5">
