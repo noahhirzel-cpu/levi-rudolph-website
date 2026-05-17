@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -75,7 +75,7 @@ export default async function LeistungsDetailPage({ params }: PageProps) {
           </p>
           <Button
             render={<Link href="/termin" />}
-            className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide w-fit"
+            className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide w-fit"
           >
             {leistung.ctaText}
           </Button>

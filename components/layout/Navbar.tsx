@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { href: "/ueber-mich", label: "Über mich" },
+  { href: "/ueber-mich", label: "Ãœber mich" },
   { href: "/leistungen", label: "Leistungen" },
   { href: "/finanzcheck", label: "Finanzcheck" },
   { href: "/blog", label: "Blog" },
@@ -47,7 +47,7 @@ export function Navbar() {
           <Link
             href="/"
             className="flex flex-col leading-none group"
-            aria-label="Levi Rudolph — Startseite"
+            aria-label="Levi Rudolph â€” Startseite"
           >
             <span className="font-heading text-2xl font-bold text-warmwhite tracking-tight">
               Levi Rudolph
@@ -83,7 +83,7 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Button
               render={<Link href="/termin" />}
-              className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-6 py-2.5 text-sm"
+              className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 transition-colors duration-200 rounded-none px-6 py-2.5 text-sm"
             >
               Termin buchen
             </Button>
@@ -93,7 +93,7 @@ export function Navbar() {
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             className="lg:hidden p-2 text-warmwhite"
-            aria-label={isMobileOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-label={isMobileOpen ? "MenÃ¼ schlieÃŸen" : "MenÃ¼ Ã¶ffnen"}
             aria-expanded={isMobileOpen}
           >
             {isMobileOpen ? <X size={26} /> : <Menu size={26} />}
@@ -127,7 +127,7 @@ export function Navbar() {
               ))}
               <Button
                 render={<Link href="/termin" />}
-                className="mt-4 w-full bg-gold text-navy font-semibold hover:bg-gold-light rounded-none py-4 text-base"
+                className="mt-4 w-full bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 rounded-none py-4 text-base"
               >
                 Termin buchen
               </Button>
@@ -138,3 +138,4 @@ export function Navbar() {
     </header>
   );
 }
+
