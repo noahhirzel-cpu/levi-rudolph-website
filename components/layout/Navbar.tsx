@@ -18,6 +18,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -29,10 +30,12 @@ export function Navbar() {
     setIsMobileOpen(false);
   }, [pathname]);
 
+  const showNavyBg = isScrolled || !isHomePage;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        showNavyBg
           ? "bg-navy/95 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
@@ -42,17 +45,15 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 group"
+            className="flex flex-col leading-none group"
             aria-label="Levi Rudolph — Startseite"
           >
-            <div className="flex flex-col leading-none">
-              <span className="font-heading text-xl font-bold text-warmwhite">
-                Levi Rudolph
-              </span>
-              <span className="text-[11px] text-gold tracking-widest uppercase font-medium">
-                Financial Advisor
-              </span>
-            </div>
+            <span className="font-heading text-xl font-bold text-warmwhite">
+              Levi Rudolph
+            </span>
+            <span className="text-[11px] text-gold tracking-widest uppercase font-medium">
+              Financial Advisor
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -81,7 +82,7 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Button
               render={<Link href="/termin" />}
-              className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-full px-6"
+              className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-6"
             >
               Termin buchen
             </Button>
@@ -125,7 +126,7 @@ export function Navbar() {
               ))}
               <Button
                 render={<Link href="/termin" />}
-                className="mt-2 bg-gold text-navy font-semibold hover:bg-gold-light rounded-full"
+                className="mt-2 bg-gold text-navy font-semibold hover:bg-gold-light rounded-none"
               >
                 Termin buchen
               </Button>

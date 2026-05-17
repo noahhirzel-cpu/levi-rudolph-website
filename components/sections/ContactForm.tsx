@@ -70,7 +70,7 @@ export function ContactForm() {
         <Button
           onClick={() => setIsSubmitted(false)}
           variant="outline"
-          className="mt-4 rounded-full"
+          className="mt-4 rounded-none"
         >
           Weitere Nachricht senden
         </Button>
@@ -93,7 +93,7 @@ export function ContactForm() {
             id="name"
             {...register("name")}
             placeholder="Max Mustermann"
-            className="px-4 py-3 border border-border rounded-xl bg-white text-darktext placeholder:text-gray-subtle focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
+            className="px-4 py-3 border border-border rounded-none bg-white text-darktext placeholder:text-gray-subtle focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
           />
           {errors.name && (
             <p className="text-xs text-destructive">{errors.name.message}</p>
@@ -109,7 +109,7 @@ export function ContactForm() {
             type="email"
             {...register("email")}
             placeholder="max@beispiel.de"
-            className="px-4 py-3 border border-border rounded-xl bg-white text-darktext placeholder:text-gray-subtle focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
+            className="px-4 py-3 border border-border rounded-none bg-white text-darktext placeholder:text-gray-subtle focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
           />
           {errors.email && (
             <p className="text-xs text-destructive">{errors.email.message}</p>
@@ -126,7 +126,7 @@ export function ContactForm() {
           type="tel"
           {...register("phone")}
           placeholder="+49 151 23456789"
-          className="px-4 py-3 border border-border rounded-xl bg-white text-darktext placeholder:text-gray-subtle focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
+          className="px-4 py-3 border border-border rounded-none bg-white text-darktext placeholder:text-gray-subtle focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
         />
       </div>
 
@@ -137,7 +137,7 @@ export function ContactForm() {
         <select
           id="topic"
           {...register("topic")}
-          className="px-4 py-3 border border-border rounded-xl bg-white text-darktext focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition appearance-none"
+          className="px-4 py-3 border border-border rounded-none bg-white text-darktext focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition appearance-none"
         >
           <option value="">Bitte wählen...</option>
           {topics.map((topic) => (
@@ -160,7 +160,7 @@ export function ContactForm() {
           {...register("message")}
           rows={5}
           placeholder="Beschreib kurz deine Situation und was dich bewegt..."
-          className="px-4 py-3 border border-border rounded-xl bg-white text-darktext placeholder:text-gray-subtle focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-none"
+          className="px-4 py-3 border border-border rounded-none bg-white text-darktext placeholder:text-gray-subtle focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-none"
         />
         {errors.message && (
           <p className="text-xs text-destructive">{errors.message.message}</p>
@@ -178,7 +178,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isLoading}
-        className="w-full sm:w-fit bg-gold text-navy font-semibold hover:bg-gold-light rounded-full px-8 py-6 text-base gap-2"
+        className="w-full sm:w-fit bg-gold text-navy font-semibold hover:bg-gold-light rounded-none px-8 py-6 text-base gap-2"
       >
         {isLoading ? (
           "Wird gesendet..."

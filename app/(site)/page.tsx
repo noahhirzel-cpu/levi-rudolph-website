@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Shield, TrendingUp, Cross, BarChart2, Building2, BookOpen } from "lucide-react";
 
+
 const services = [
   {
     icon: <Shield size={28} strokeWidth={1.5} />,
@@ -167,6 +168,8 @@ export default async function HomePage() {
         headline="Beratung, die wirklich passt"
         subline="In einem kurzen Erstgespräch lerne ich deine Situation kennen — und du erfährst, wie ich dir konkret helfen kann. Kein Druck, kein Script."
         label="Meine Arbeitsweise"
+        posterSrc="/images/beratung-1.jpg"
+        posterAlt="Professionelle Finanzberatung mit Levi Rudolph"
       />
 
       {/* Services */}

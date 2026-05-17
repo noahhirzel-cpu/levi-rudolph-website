@@ -57,54 +57,75 @@ const timeline = [
 export default function UeberMichPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-40 pb-24 px-4 sm:px-6 lg:px-8 bg-warmwhite">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          <div className="relative">
-            <div className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-navy/5 overflow-hidden">
-              <Image
-                src="/images/levi-business.jpeg"
-                alt="Levi Rudolph — Financial Advisor Frankfurt"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-            </div>
-          </div>
+      {/* Hero — navy split */}
+      <section className="relative min-h-[70vh] grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden">
+        {/* Left — Text */}
+        <div className="relative z-10 flex flex-col justify-center px-8 sm:px-12 lg:px-16 xl:px-20 pt-40 pb-20 lg:py-0">
+          <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-6">
+            Über mich
+          </p>
+          <h1 className="font-heading text-5xl sm:text-6xl font-bold text-warmwhite leading-[1.05] mb-6">
+            Ich bin Levi — Finanzberater auf Augenhöhe
+          </h1>
+          <p className="text-lg text-warmwhite/60 leading-relaxed mb-8 max-w-lg">
+            Financial Advisor bei MLP in Frankfurt. Meine Leidenschaft: Finanzielle Angst in
+            finanzielles Selbstbewusstsein verwandeln.
+          </p>
+          <Button
+            render={<Link href="/termin" />}
+            className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide w-fit"
+          >
+            Lern mich kennen
+          </Button>
+        </div>
 
-          <div className="flex flex-col gap-8 lg:pt-4">
-            <p className="text-xs font-semibold tracking-widest uppercase text-gold">
-              Über mich
-            </p>
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-darktext leading-tight">
-              Ich bin Levi — Finanzberater auf Augenhöhe
-            </h1>
-
-            <div className="space-y-5 text-gray-subtle leading-relaxed text-lg">
-              <p>
-                Ich bin Levi Rudolph, Financial Advisor bei MLP in Frankfurt.
-                Meine Leidenschaft: Finanzielle Angst in finanzielles Selbstbewusstsein verwandeln.
-              </p>
-              <p>
-                Nach meinem dualen Studium an der DHBW Mannheim (B.A. Banking, Note 1,5) habe ich
-                mich entschieden, selbstständig zu beraten — weil echte Beratung keine
-                Einheitslösungen kennt.
-              </p>
-            </div>
-
-            <blockquote className="border-l-2 border-gold pl-6 py-1 text-darktext font-heading text-xl italic leading-snug">
-              "Kein Versicherungsblabla. Echte Beratung, die zu deinem Leben passt."
-            </blockquote>
-
-            <Button
-              render={<Link href="/termin" />}
-              className="bg-gold text-navy font-semibold hover:bg-gold-light transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide w-fit"
-            >
-              Lern mich kennen
-            </Button>
-          </div>
+        {/* Right — Photo */}
+        <div className="relative min-h-[50vh] lg:min-h-full">
+          <Image
+            src="/images/levi-business.jpeg"
+            alt="Levi Rudolph — Financial Advisor Frankfurt"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/20 to-transparent lg:block hidden" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-transparent lg:hidden" />
         </div>
       </section>
+
+      {/* About text */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-warmwhite">
+        <div className="max-w-4xl mx-auto space-y-5 text-gray-subtle leading-relaxed text-lg">
+          <p>
+            Nach meinem dualen Studium an der DHBW Mannheim (B.A. Banking, Note 1,5) habe ich
+            mich entschieden, selbstständig zu beraten — weil echte Beratung keine
+            Einheitslösungen kennt.
+          </p>
+          <p>
+            Ich berate täglich angehende Kammerberufler, Ingenieure und Young Professionals in
+            Frankfurt und deutschlandweit — Menschen, die kluge Entscheidungen treffen wollen.
+          </p>
+          <blockquote className="border-l-2 border-gold pl-6 py-1 text-darktext font-heading text-xl italic leading-snug">
+            &ldquo;Kein Versicherungsblabla. Echte Beratung, die zu deinem Leben passt.&rdquo;
+          </blockquote>
+        </div>
+      </section>
+
+      {/* Beratungs-Foto — volle Breite */}
+      <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+        <Image
+          src="/images/steuerberater-finden-aufgaben-risiko-tipps-unternehmen-abrechnung-jahresabschluss-kanzlei-beratung-dokumente-schreibtisch-notebook-anzug.jpg"
+          alt="Professionelle Finanzberatung"
+          fill
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-navy/50" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="font-heading text-2xl sm:text-3xl font-bold text-warmwhite text-center max-w-lg px-4 leading-snug">
+            Von der Analyse zur Strategie — persönlich und auf Augenhöhe.
+          </p>
+        </div>
+      </div>
 
       {/* Timeline */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">

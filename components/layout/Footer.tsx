@@ -45,7 +45,7 @@ export function Footer() {
     <footer className="bg-navy text-warmwhite/80">
       {/* MLP Partner Banner */}
       <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-warmwhite/40 tracking-wide">
             Levi Rudolph ist selbstständiger Handelsvertreter der MLP Finanzberatung SE
           </p>
