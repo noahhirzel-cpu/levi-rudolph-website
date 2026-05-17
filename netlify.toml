@@ -1,0 +1,47 @@
+# Levi Rudolph Website — Netlify Configuration
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Production (main branch)
+[context.production]
+  environment = { NEXT_PUBLIC_ENV = "production" }
+
+# Staging (staging branch) — gets preview URL staging--{site}.netlify.app
+[context.staging]
+  environment = { NEXT_PUBLIC_ENV = "staging" }
+
+# Branch deploys
+[context.branch-deploy]
+  environment = { NEXT_PUBLIC_ENV = "preview" }
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache Next.js static assets aggressively (content-hashed, safe to cache forever)
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Don't cache HTML pages (always fetch fresh from CDN)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirect www → non-www (uncomment and update domain after DNS is set up)
+# [[redirects]]
+#   from = "https://www.levi-rudolph.de/*"
+#   to = "https://levi-rudolph.de/:splat"
+#   status = 301
+#   force = true
