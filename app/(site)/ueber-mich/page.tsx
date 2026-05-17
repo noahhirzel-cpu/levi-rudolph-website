@@ -86,7 +86,7 @@ export default function UeberMichPage() {
             src="/images/levi-business.jpeg"
             alt="Levi Rudolph — Financial Advisor Frankfurt"
             fill
-            className="object-contain object-center"
+            className="object-contain object-center lg:object-cover lg:object-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/10 to-transparent lg:block hidden" />
