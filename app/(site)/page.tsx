@@ -109,11 +109,11 @@ export default async function HomePage() {
       {/* Stats */}
       <section className="bg-white border-b border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
             {stats.map((stat, i) => (
-              <FadeUp key={stat.label} delay={i * 0.1} className="flex flex-col items-center text-center px-6 first:pl-0 last:pr-0">
-                <span className="font-heading text-5xl sm:text-6xl font-bold text-darktext">{stat.value}</span>
-                <span className="text-sm text-gray-subtle mt-2 leading-tight">{stat.label}</span>
+              <FadeUp key={stat.label} delay={i * 0.1} className="flex flex-col items-center text-center px-6 py-8 bg-white">
+                <span className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-darktext">{stat.value}</span>
+                <span className="text-xs sm:text-sm text-gray-subtle mt-2 leading-tight">{stat.label}</span>
               </FadeUp>
             ))}
           </div>

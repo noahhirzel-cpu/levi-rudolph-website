@@ -59,37 +59,38 @@ export default function UeberMichPage() {
   return (
     <>
       {/* Hero — navy split */}
-      <section className="relative min-h-[70vh] grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden">
+      <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden">
         {/* Left — Text */}
-        <div className="relative z-10 flex flex-col justify-center px-8 sm:px-12 lg:px-16 xl:px-20 pt-40 pb-20 lg:py-0">
+        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-36 pb-20 lg:py-0">
           <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-6">
             Über mich
           </p>
-          <h1 className="font-heading text-5xl sm:text-6xl font-bold text-warmwhite leading-[1.05] mb-6">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-warmwhite leading-[1.05] mb-6">
             Ich bin Levi — Finanzberater auf Augenhöhe
           </h1>
-          <p className="text-lg text-warmwhite/60 leading-relaxed mb-8 max-w-lg">
+          <p className="text-base sm:text-lg text-warmwhite/60 leading-relaxed mb-8 max-w-lg">
             Financial Advisor bei MLP in Frankfurt. Meine Leidenschaft: Finanzielle Angst in
             finanzielles Selbstbewusstsein verwandeln.
           </p>
           <Button
             render={<Link href="/termin" />}
-            className="bg-gold text-navy font-semibold hover:bg-gold-light active:opacity-90 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-colors duration-200 rounded-none px-10 py-5 text-sm tracking-wide w-fit"
+            className="w-full sm:w-auto bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-all duration-200 rounded-none px-10 py-5 text-sm tracking-wide"
           >
             Lern mich kennen
           </Button>
         </div>
 
         {/* Right — Photo */}
-        <div className="relative min-h-[70vh] lg:min-h-screen bg-navy">
+        <div className="relative min-h-[60vh] lg:min-h-screen bg-navy">
           <Image
             src="/images/levi-business.jpeg"
             alt="Levi Rudolph — Financial Advisor Frankfurt"
             fill
             className="object-contain object-center lg:object-cover lg:object-top"
             priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/10 to-transparent lg:block hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/20 to-transparent lg:block hidden" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-transparent lg:hidden" />
         </div>
       </section>
