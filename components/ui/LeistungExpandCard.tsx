@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface LeistungExpandCardProps {
   slug: string;
@@ -21,68 +19,43 @@ export function LeistungExpandCard({
   imageSrc,
   imageAlt,
 }: LeistungExpandCardProps) {
-  const [open, setOpen] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
-
   return (
-    <div className="flex flex-col bg-white">
-      {/* Image — prominent, clickable */}
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="relative aspect-[4/3] overflow-hidden group w-full text-left"
-        aria-expanded={open}
-        aria-label={`${title} — Details anzeigen`}
-      >
-        <Image
-          src={imageSrc}
-          alt={imageAlt ?? title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-        <div className="absolute inset-0 bg-navy/25 group-hover:bg-navy/15 transition-colors duration-300" />
-      </button>
+    <Link
+      href={`/leistungen/${slug}`}
+      className="relative block aspect-[4/3] overflow-hidden group"
+      aria-label={title}
+    >
+      {/* Image */}
+      <Image
+        src={imageSrc}
+        alt={imageAlt ?? title}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
 
-      {/* Title row — click to toggle */}
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="flex items-center justify-between px-6 pt-5 pb-4 text-left w-full group"
-        aria-expanded={open}
-      >
-        <h3 className="font-heading text-lg font-bold text-darktext leading-snug group-hover:text-gold transition-colors duration-200">
+      {/* Default state — dark gradient at bottom, title visible */}
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent transition-opacity duration-400 group-hover:opacity-0" />
+      <div className="absolute bottom-0 left-0 right-0 p-6 transition-opacity duration-300 group-hover:opacity-0">
+        <h3 className="font-heading text-xl font-bold text-warmwhite leading-snug">
           {title}
         </h3>
-        <ChevronDown
-          size={18}
-          className={`text-darktext/40 group-hover:text-gold transition-all duration-300 shrink-0 ml-3 ${
-            open ? "rotate-180" : ""
-          }`}
-        />
-      </button>
+      </div>
 
-      {/* Expandable description */}
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-6 pb-6 flex flex-col gap-4">
-              <p className="text-gray-subtle text-sm leading-relaxed">{description}</p>
-              <Link
-                href={`/leistungen/${slug}`}
-                className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-darktext border-b border-darktext pb-0.5 w-fit hover:text-gold hover:border-gold transition-colors duration-200"
-              >
-                Mehr erfahren
-                <ArrowRight size={12} />
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      {/* Hover state — white-ish blur overlay with text */}
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+      <div className="absolute inset-0 flex flex-col justify-center px-8 py-8 opacity-0 group-hover:opacity-100 transition-all duration-400 delay-75 translate-y-2 group-hover:translate-y-0">
+        <h3 className="font-heading text-xl font-bold text-darktext mb-3 leading-snug">
+          {title}
+        </h3>
+        <p className="text-gray-subtle text-sm leading-relaxed mb-5">
+          {description}
+        </p>
+        <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-darktext border-b border-darktext pb-0.5 w-fit group-hover:text-gold group-hover:border-gold transition-colors duration-200">
+          Mehr erfahren
+          <ArrowRight size={12} />
+        </span>
+      </div>
+    </Link>
   );
 }
