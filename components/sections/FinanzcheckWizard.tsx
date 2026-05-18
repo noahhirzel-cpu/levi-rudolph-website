@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,24 +22,24 @@ interface FormData {
 const situationOptions: { value: Situation; label: string; desc: string }[] = [
   { value: "student", label: "Student / Studentin", desc: "Ich studiere gerade oder bin kurz vor dem Abschluss." },
   { value: "angestellt", label: "Angestellt", desc: "Ich arbeite als Angestellter, stehe am Anfang meiner Karriere." },
-  { value: "kammerberufler", label: "Kammerberufler", desc: "Arzt, Anwalt, Steuerberater, Architekt o.Ã¤." },
-  { value: "selbststaendig", label: "SelbststÃ¤ndig", desc: "Ich arbeite freiberuflich oder habe ein eigenes Unternehmen." },
+  { value: "kammerberufler", label: "Kammerberufler", desc: "Arzt, Anwalt, Steuerberater, Architekt o.ä." },
+  { value: "selbststaendig", label: "Selbstständig", desc: "Ich arbeite freiberuflich oder habe ein eigenes Unternehmen." },
 ];
 
 const themenOptions: { value: Thema; label: string; desc: string }[] = [
-  { value: "bu", label: "BerufsunfÃ¤higkeit", desc: "Absicherung meiner Arbeitskraft" },
+  { value: "bu", label: "Berufsunfähigkeit", desc: "Absicherung meiner Arbeitskraft" },
   { value: "altersvorsorge", label: "Altersvorsorge", desc: "ETF, Rente, langfristig sparen" },
-  { value: "pkv", label: "Krankenversicherung", desc: "GKV vs. PKV â€” was lohnt sich?" },
-  { value: "vermoegen", label: "VermÃ¶gensaufbau", desc: "Depot aufbauen, investieren" },
+  { value: "pkv", label: "Krankenversicherung", desc: "GKV vs. PKV — was lohnt sich?" },
+  { value: "vermoegen", label: "Vermögensaufbau", desc: "Depot aufbauen, investieren" },
   { value: "immobilien", label: "Immobilien", desc: "Kaufen, finanzieren, planen" },
   { value: "karriere", label: "Karriere & Finanzen", desc: "Gehalt, Steuern, Brutto/Netto" },
 ];
 
 const alterOptions: { value: Alter; label: string }[] = [
   { value: "unter25", label: "Unter 25" },
-  { value: "25bis30", label: "25 â€“ 30" },
-  { value: "31bis35", label: "31 â€“ 35" },
-  { value: "ueber35", label: "Ãœber 35" },
+  { value: "25bis30", label: "25 – 30" },
+  { value: "31bis35", label: "31 – 35" },
+  { value: "ueber35", label: "Über 35" },
 ];
 
 const TOTAL_STEPS = 4;
@@ -86,7 +86,7 @@ export function FinanzcheckWizard() {
           name: form.name,
           email: form.email,
           phone: form.telefon,
-          topic: "360Â° Finanzcheck",
+          topic: "360° Finanzcheck",
           message: `Finanzcheck Ergebnisse:\n\nLebenssituation: ${situationLabel}\nThemen: ${themenLabels}\nAlter: ${alterLabel}`,
         }),
       });
@@ -105,11 +105,11 @@ export function FinanzcheckWizard() {
           Alles angekommen!
         </h2>
         <p className="text-gray-subtle text-lg max-w-md leading-relaxed">
-          Danke, {form.name.split(" ")[0]}. Ich melde mich persÃ¶nlich bei dir â€” meist innerhalb von 24 Stunden.
+          Danke, {form.name.split(" ")[0]}. Ich melde mich persönlich bei dir — meist innerhalb von 24 Stunden.
         </p>
         <Button
           render={<Link href="/termin" />}
-          className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 rounded-none px-10 py-5 text-sm tracking-wide gap-2 mt-4"
+          className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none rounded-none px-10 py-5 text-sm tracking-wide gap-2 mt-4"
         >
           Direkt Termin buchen
           <ArrowRight size={14} />
@@ -149,7 +149,7 @@ export function FinanzcheckWizard() {
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-darktext mb-2">
               Was beschreibt dich am besten?
             </h2>
-            <p className="text-gray-subtle mb-8 text-base">Damit ich deine Situation richtig einschÃ¤tzen kann.</p>
+            <p className="text-gray-subtle mb-8 text-base">Damit ich deine Situation richtig einschätzen kann.</p>
             <div className="flex flex-col gap-3">
               {situationOptions.map((opt) => (
                 <button
@@ -185,9 +185,9 @@ export function FinanzcheckWizard() {
             transition={{ duration: 0.25 }}
           >
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-darktext mb-2">
-              Was mÃ¶chtest du angehen?
+              Was möchtest du angehen?
             </h2>
-            <p className="text-gray-subtle mb-8 text-base">Mehrere Themen mÃ¶glich â€” wÃ¤hle alles, was dich interessiert.</p>
+            <p className="text-gray-subtle mb-8 text-base">Mehrere Themen möglich — wähle alles, was dich interessiert.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {themenOptions.map((opt) => {
                 const selected = form.themen.includes(opt.value);
@@ -224,7 +224,7 @@ export function FinanzcheckWizard() {
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-darktext mb-2">
               Wie alt bist du?
             </h2>
-            <p className="text-gray-subtle mb-8 text-base">Das Alter beeinflusst, welche Strategien fÃ¼r dich am sinnvollsten sind.</p>
+            <p className="text-gray-subtle mb-8 text-base">Das Alter beeinflusst, welche Strategien für dich am sinnvollsten sind.</p>
             <div className="grid grid-cols-2 gap-3">
               {alterOptions.map((opt) => (
                 <button
@@ -257,7 +257,7 @@ export function FinanzcheckWizard() {
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-darktext mb-2">
               Wie kann ich dich erreichen?
             </h2>
-            <p className="text-gray-subtle mb-8 text-base">Ich melde mich persÃ¶nlich â€” kein Callcenter, kein Skript.</p>
+            <p className="text-gray-subtle mb-8 text-base">Ich melde mich persönlich — kein Callcenter, kein Skript.</p>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-semibold text-darktext">Name <span className="text-gold">*</span></label>
@@ -290,8 +290,8 @@ export function FinanzcheckWizard() {
                 />
               </div>
               <p className="text-xs text-gray-subtle">
-                Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemÃ¤ÃŸ unserer{" "}
-                <a href="/datenschutz" className="text-gold underline">DatenschutzerklÃ¤rung</a> zu.
+                Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer{" "}
+                <a href="/datenschutz" className="text-gold underline">Datenschutzerklärung</a> zu.
               </p>
             </div>
           </motion.div>
@@ -306,7 +306,7 @@ export function FinanzcheckWizard() {
             className="inline-flex items-center gap-2 text-sm font-semibold text-gray-subtle hover:text-darktext transition-colors duration-200"
           >
             <ArrowLeft size={16} />
-            ZurÃ¼ck
+            Zurück
           </button>
         ) : (
           <div />
@@ -316,7 +316,7 @@ export function FinanzcheckWizard() {
           <Button
             onClick={() => setStep((s) => s + 1)}
             disabled={!canNext()}
-            className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed rounded-none px-8 py-4 text-sm tracking-wide gap-2 transition-all"
+            className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed rounded-none px-8 py-4 text-sm tracking-wide gap-2 transition-all"
           >
             Weiter
             <ArrowRight size={14} />
@@ -325,9 +325,9 @@ export function FinanzcheckWizard() {
           <Button
             onClick={handleSubmit}
             disabled={!canNext() || loading}
-            className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 disabled:opacity-40 disabled:cursor-not-allowed rounded-none px-8 py-4 text-sm tracking-wide gap-2 transition-all"
+            className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed rounded-none px-8 py-4 text-sm tracking-wide gap-2 transition-all"
           >
-            {loading ? "Wird gesendetâ€¦" : "Finanzcheck abschicken"}
+            {loading ? "Wird gesendet…" : "Finanzcheck abschicken"}
             {!loading && <Send size={14} />}
           </Button>
         )}
@@ -335,4 +335,3 @@ export function FinanzcheckWizard() {
     </div>
   );
 }
-

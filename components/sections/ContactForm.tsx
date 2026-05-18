@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,19 +9,19 @@ import { Send, CheckCircle2 } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name muss mindestens 2 Zeichen haben"),
-  email: z.string().email("Bitte gib eine gÃ¼ltige E-Mail-Adresse ein"),
+  email: z.string().email("Bitte gib eine gültige E-Mail-Adresse ein"),
   phone: z.string().optional(),
-  topic: z.string().min(1, "Bitte wÃ¤hle ein Thema"),
+  topic: z.string().min(1, "Bitte wähle ein Thema"),
   message: z.string().min(10, "Nachricht muss mindestens 10 Zeichen haben"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const topics = [
-  "BerufsunfÃ¤higkeitsversicherung",
+  "Berufsunfähigkeitsversicherung",
   "Altersvorsorge",
   "Private Krankenversicherung",
-  "VermÃ¶gensaufbau",
+  "Vermögensaufbau",
   "Immobilienfinanzierung",
   "Karriere & Finanzplanung",
   "Sonstiges",
@@ -139,7 +139,7 @@ export function ContactForm() {
           {...register("topic")}
           className="px-4 py-3 border border-border rounded-none bg-white text-darktext focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition appearance-none"
         >
-          <option value="">Bitte wÃ¤hlen...</option>
+          <option value="">Bitte wählen...</option>
           {topics.map((topic) => (
             <option key={topic} value={topic}>
               {topic}
@@ -168,9 +168,9 @@ export function ContactForm() {
       </div>
 
       <p className="text-xs text-gray-subtle">
-        Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemÃ¤ÃŸ unserer{" "}
+        Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer{" "}
         <a href="/datenschutz" className="text-gold underline">
-          DatenschutzerklÃ¤rung
+          Datenschutzerklärung
         </a>{" "}
         zu.
       </p>
@@ -178,7 +178,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isLoading}
-        className="w-full sm:w-fit bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 rounded-none px-8 py-6 text-base gap-2"
+        className="w-full sm:w-fit bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none rounded-none px-8 py-6 text-base gap-2"
       >
         {isLoading ? (
           "Wird gesendet..."
@@ -192,4 +192,3 @@ export function ContactForm() {
     </form>
   );
 }
-

@@ -37,7 +37,7 @@ export function AnimatedHero({
   return (
     <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden">
       {/* Left — Text */}
-      <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-36 pb-20 lg:py-0">
+      <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-10 pb-20 lg:py-0 order-last lg:order-first">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -91,7 +91,7 @@ export function AnimatedHero({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.1 }}
-        className="relative min-h-[70vh] lg:min-h-screen bg-navy"
+        className="relative min-h-[70vh] lg:min-h-screen bg-navy pt-20 lg:pt-0 order-first lg:order-last"
       >
         <Image
           src="/images/levi-business.jpeg"
