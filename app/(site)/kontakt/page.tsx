@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/sections/ContactForm";
-import { Mail, MapPin, ExternalLink } from "lucide-react";
+import { Mail, MapPin, ExternalLink, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -9,6 +9,12 @@ export const metadata: Metadata = {
 };
 
 const contactInfo = [
+  {
+    icon: <Phone size={18} strokeWidth={1.5} />,
+    label: "Telefon",
+    value: "+49 176 40729893",
+    href: "tel:+4917640729893",
+  },
   {
     icon: <Mail size={18} strokeWidth={1.5} />,
     label: "E-Mail",
@@ -89,16 +95,16 @@ export default function KontaktPage() {
                 Partner
               </p>
               <p className="text-sm text-gray-subtle leading-relaxed">
-                Levi Rudolph ist selbstständiger Handelsvertreter der{" "}
+                Ich bin selbstständiger Karriere- und Finanzberater als Partner in Kooperation mit{" "}
                 <a
                   href="https://www.mlp.de"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-darktext font-semibold hover:text-gold transition-colors duration-200"
                 >
-                  MLP Finanzberatung SE
+                  MLP (Marschollek, Lautenschläger und Partner)
                 </a>
-                . Alle Beratungen sind unverbindlich und kostenfrei.
+                .
               </p>
             </div>
           </div>

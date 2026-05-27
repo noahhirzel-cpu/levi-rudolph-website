@@ -11,50 +11,51 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 
+// TODO: Levi schickt eigene Bilder für die Leistungskacheln
 const services = [
   {
-    slug: "berufsunfaehigkeit",
-    title: "Berufsunfähigkeitsversicherung",
-    description: "Deine Arbeitskraft ist dein größtes Kapital. Ich finde die Absicherung, die wirklich zu deinem Beruf passt.",
-    imageSrc: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&fit=crop",
-  },
-  {
     slug: "altersvorsorge",
-    title: "Altersvorsorge",
-    description: "ETF-Strategien, Entnahmekonzepte, Sequence-of-Return-Risiko. Damit du im Alter wirklich frei bist.",
+    title: "360° Finanzanalyse",
+    description: "Der vollständige Überblick über deine Finanzsituation — Versicherungen, Vorsorge und Kapital in einem Blick.",
     imageSrc: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&q=80&fit=crop",
   },
   {
-    slug: "krankenversicherung",
-    title: "Private Krankenversicherung",
-    description: "Für Kammerberufler oft Pflicht und Chance zugleich. Eine ehrliche Einschätzung — ohne Schönfärberei.",
-    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop",
+    slug: "karriere-finanzplanung",
+    title: "Karriereplanung",
+    description: "Brutto/Netto, Steuererklärung, Gehalt verhandeln. Finanzielle Grundlagen für deinen Karrierestart.",
+    imageSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&fit=crop",
   },
   {
     slug: "vermoegensaufbau",
-    title: "Vermögensaufbau",
+    title: "Kapitalanlage",
     description: "Vom ersten Depot bis zur langfristigen Strategie. Transparent, renditeorientiert, auf dich zugeschnitten.",
     imageSrc: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&fit=crop",
   },
   {
+    slug: "krankenversicherung",
+    title: "Kontenmodell",
+    description: "Dein optimales Kontenmodell für Aufbau, Rücklagen und Investitionen — klar strukturiert.",
+    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop",
+  },
+  {
     slug: "immobilienfinanzierung",
-    title: "Immobilienfinanzierung",
+    title: "Immobilien",
     description: "Eigenkapital planen, Finanzierung vergleichen. Dein Weg zur eigenen Immobilie — Schritt für Schritt.",
     imageSrc: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80&fit=crop",
   },
   {
-    slug: "karriere-finanzplanung",
-    title: "Karriere & Finanzplanung",
-    description: "Brutto/Netto, Steuererklärung, Gehalt verhandeln. Finanzielle Grundlagen für deinen Karrierestart.",
-    imageSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&fit=crop",
+    slug: "berufsunfaehigkeit",
+    title: "Absicherung",
+    description: "Deine Arbeitskraft ist dein größtes Kapital. Ich finde die Absicherung, die wirklich zu deinem Beruf passt.",
+    imageSrc: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&fit=crop",
   },
 ];
 
 const stats = [
-  { value: "30 Min", label: "Kostenloses Erstgespräch" },
-  { value: "50+", label: "Jahre MLP am Markt" },
-  { value: "10k+", label: "Follower auf LinkedIn" },
-  { value: "100%", label: "Unverbindlich & kostenlos" },
+  { value: "30 Min", label: "Erstgespräch" },
+  { value: "10.000+", label: "LinkedIn Follower" },
+  { value: "3+", label: "Jahre Erfahrung" },
+  { value: "100+", label: "Zufriedene Kunden" },
 ];
 
 const steps = [
@@ -102,7 +103,7 @@ export default async function HomePage() {
   return (
     <>
       <AnimatedHero
-        headline="Finanzielle Klarheit für Kammerberufler & Ingenieure"
+        headline="Finanzielle Klarheit für Akademiker & Young Professionals"
         subline="Von 'Ich mach das später' zu 'Hab ich geregelt' — mit maßgeschneiderten Finanzstrategien, die zu deinem Leben passen."
       />
 
@@ -125,6 +126,7 @@ export default async function HomePage() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <FadeUp>
             <div className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-navy/5 overflow-hidden">
+              {/* TODO: Levi schickt neues Foto — hier ersetzen */}
               <Image
                 src="/images/levi-business.jpeg"
                 alt="Levi Rudolph — Financial Advisor Frankfurt"
@@ -237,7 +239,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {steps.map((step, i) => (
               <FadeUp key={step.number} delay={i * 0.15} className="flex flex-col gap-5">
-                <span className="font-heading text-8xl font-bold text-warmwhite/10 leading-none select-none">
+                <span className="font-heading text-8xl font-bold text-gold leading-none select-none">
                   {step.number}
                 </span>
                 <h3 className="font-heading text-xl font-bold text-warmwhite">

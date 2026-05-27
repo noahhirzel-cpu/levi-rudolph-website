@@ -41,13 +41,6 @@ const timeline = [
       "Duales Studium in Kooperation mit MLP Finanzberatung SE. Schwerpunkte: Produktmanagement, MLP Banking, Beratungssegmente.",
   },
   {
-    year: "2018",
-    title: "Praktikum Individualkundenberatung",
-    org: "Volksbank Neckartal eG · Heidelberg",
-    description:
-      "Erste Praxiserfahrung in der Kundenberatung und im Bankwesen.",
-  },
-  {
     year: "bis 2022",
     title: "Abitur",
     org: "Max-Weber-Schule Sinsheim",
@@ -74,7 +67,8 @@ export default function UeberMichPage() {
           </p>
           <Button
             render={<Link href="/termin" />}
-            className="w-full sm:w-auto bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-all duration-200 rounded-none px-10 py-5 text-sm tracking-wide"
+            variant="gold"
+            className="w-full sm:w-auto outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-all duration-200 rounded-none px-10 py-5 text-sm tracking-wide"
           >
             Lern mich kennen
           </Button>

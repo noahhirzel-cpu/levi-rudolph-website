@@ -109,7 +109,8 @@ export function FinanzcheckWizard() {
         </p>
         <Button
           render={<Link href="/termin" />}
-          className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none rounded-none px-10 py-5 text-sm tracking-wide gap-2 mt-4"
+          variant="gold"
+          className="outline-none focus:outline-none rounded-none px-10 py-5 text-sm tracking-wide gap-2 mt-4"
         >
           Direkt Termin buchen
           <ArrowRight size={14} />
@@ -298,6 +299,8 @@ export function FinanzcheckWizard() {
         )}
       </AnimatePresence>
 
+      {/* TODO: Levi ergänzt weitere Fragen */}
+
       {/* Navigation */}
       <div className="flex items-center justify-between mt-10 pt-8 border-t border-border">
         {step > 1 ? (
@@ -316,7 +319,8 @@ export function FinanzcheckWizard() {
           <Button
             onClick={() => setStep((s) => s + 1)}
             disabled={!canNext()}
-            className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed rounded-none px-8 py-4 text-sm tracking-wide gap-2 transition-all"
+            variant="gold"
+            className="outline-none focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed rounded-none px-8 py-4 text-sm tracking-wide gap-2 transition-all"
           >
             Weiter
             <ArrowRight size={14} />
@@ -325,7 +329,8 @@ export function FinanzcheckWizard() {
           <Button
             onClick={handleSubmit}
             disabled={!canNext() || loading}
-            className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed rounded-none px-8 py-4 text-sm tracking-wide gap-2 transition-all"
+            variant="gold"
+            className="outline-none focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed rounded-none px-8 py-4 text-sm tracking-wide gap-2 transition-all"
           >
             {loading ? "Wird gesendet…" : "Finanzcheck abschicken"}
             {!loading && <Send size={14} />}

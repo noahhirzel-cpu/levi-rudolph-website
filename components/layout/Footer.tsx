@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Phone as PhoneIcon } from "lucide-react";
 
 function LinkedInIcon({ size = 18, className }: { size?: number; className?: string }) {
   return (
@@ -47,7 +48,7 @@ export function Footer() {
       <div className="border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-warmwhite/40 tracking-wide">
-            Levi Rudolph ist selbstständiger Handelsvertreter der MLP Finanzberatung SE
+            Ich bin selbstständiger Karriere- und Finanzberater als Partner in Kooperation mit MLP (Marschollek, Lautenschläger und Partner).
           </p>
           <a
             href="https://www.mlp.de"
@@ -76,15 +77,24 @@ export function Footer() {
               Maßgeschneiderte Finanzberatung für Kammerberufler und Ingenieure.
               Frankfurt am Main.
             </p>
-            <a
-              href="https://de.linkedin.com/in/levi-rudolph-dh-student"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Profil von Levi Rudolph"
-              className="inline-flex items-center justify-center w-9 h-9 border border-white/20 text-warmwhite/60 hover:border-gold hover:text-gold transition-colors duration-200"
-            >
-              <LinkedInIcon size={16} />
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://de.linkedin.com/in/levi-rudolph-dh-student"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profil von Levi Rudolph"
+                className="inline-flex items-center justify-center w-9 h-9 border border-white/20 text-warmwhite/60 hover:border-gold hover:text-gold transition-colors duration-200"
+              >
+                <LinkedInIcon size={16} />
+              </a>
+              <a
+                href="tel:+4917640729893"
+                className="inline-flex items-center gap-2 text-sm text-warmwhite/50 hover:text-gold transition-colors duration-200"
+              >
+                <PhoneIcon size={14} />
+                +49 176 40729893
+              </a>
+            </div>
           </div>
 
           {/* Link Columns */}

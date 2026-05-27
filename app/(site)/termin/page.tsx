@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle2, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Termin buchen",
@@ -57,6 +58,18 @@ export default function TerminPage() {
                 <span className="text-sm font-medium text-darktext leading-snug">{item}</span>
               </div>
             ))}
+          </div>
+
+          {/* Direkt anrufen */}
+          <div className="mb-8 flex items-center gap-3 text-gray-subtle text-sm">
+            <span>Oder ruf mich direkt an:</span>
+            <Link
+              href="tel:+4917640729893"
+              className="inline-flex items-center gap-2 font-semibold text-darktext hover:text-gold transition-colors duration-200"
+            >
+              <Phone size={15} strokeWidth={1.5} />
+              +49 176 40729893
+            </Link>
           </div>
 
           {/* Cal.com Embed */}

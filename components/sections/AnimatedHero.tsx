@@ -35,7 +35,7 @@ export function AnimatedHero({
   });
 
   return (
-    <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden">
+    <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden -mt-[72px] lg:-mt-[80px]">
       {/* Left — Text */}
       <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-10 pb-20 lg:py-0 order-last lg:order-first">
         <motion.div
@@ -47,7 +47,7 @@ export function AnimatedHero({
             variants={fade(0.1)}
             className="text-xs font-semibold tracking-widest uppercase text-gold"
           >
-            MLP Finanzberatung SE · Frankfurt
+            Walther-von-Cronberg-Platz 2 · Frankfurt · MLP
           </motion.p>
 
           <motion.h1
@@ -70,7 +70,8 @@ export function AnimatedHero({
           >
             <Button
               render={<Link href={ctaHref} />}
-              className="w-full sm:w-auto bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-all duration-200 rounded-none px-8 py-5 text-sm tracking-wide"
+              variant="gold"
+              className="w-full sm:w-auto outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-all duration-200 rounded-none px-8 py-5 text-sm tracking-wide"
             >
               {ctaText}
             </Button>
