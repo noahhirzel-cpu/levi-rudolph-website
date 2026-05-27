@@ -178,7 +178,8 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isLoading}
-        className="w-full sm:w-fit bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none rounded-none px-8 py-6 text-base gap-2"
+        variant="gold"
+        className="w-full sm:w-fit outline-none focus:outline-none rounded-none px-8 py-6 text-base gap-2"
       >
         {isLoading ? (
           "Wird gesendet..."

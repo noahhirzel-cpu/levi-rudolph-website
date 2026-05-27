@@ -24,7 +24,8 @@ export function CTABanner({
         <p className="text-warmwhite/70 text-lg max-w-xl">{subtext}</p>
         <Button
           render={<Link href={buttonHref} />}
-          className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-all duration-200 rounded-none px-10 py-5 text-sm tracking-wide gap-2"
+          variant="gold"
+          className="outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy transition-all duration-200 rounded-none px-10 py-5 text-sm tracking-wide gap-2"
         >
           {buttonText}
           <ArrowRight size={14} />

@@ -84,7 +84,8 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Button
               render={<Link href="/termin" />}
-              className="bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none transition-all duration-200 rounded-none px-6 py-2.5 text-sm"
+              variant="gold"
+              className="outline-none focus:outline-none transition-all duration-200 rounded-none px-6 py-2.5 text-sm"
             >
               Termin buchen
             </Button>
@@ -128,7 +129,8 @@ export function Navbar() {
               ))}
               <Button
                 render={<Link href="/termin" />}
-                className="mt-4 w-full bg-gold text-navy font-semibold hover:brightness-110 active:brightness-125 outline-none focus:outline-none rounded-none py-4 text-base"
+                variant="gold"
+                className="mt-4 w-full outline-none focus:outline-none rounded-none py-4 text-base"
               >
                 Termin buchen
               </Button>
