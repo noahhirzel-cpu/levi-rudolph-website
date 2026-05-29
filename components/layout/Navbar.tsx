@@ -59,7 +59,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -81,7 +81,7 @@ export function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <Button
               render={<Link href="/termin" />}
               variant="gold"
@@ -94,7 +94,7 @@ export function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden p-2 text-warmwhite"
+            className="md:hidden p-2 text-warmwhite"
             aria-label={isMobileOpen ? "Menü schließen" : "Menü öffnen"}
             aria-expanded={isMobileOpen}
           >
@@ -111,7 +111,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-navy/98 backdrop-blur-md border-t border-white/10"
+            className="md:hidden bg-navy border-t border-white/10"
           >
             <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-2">
               {navLinks.map((link) => (

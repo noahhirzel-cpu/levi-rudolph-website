@@ -16,14 +16,21 @@ export default function ImpressumPage() {
         <p className="text-gray-subtle">
           Levi Rudolph<br />
           c/o MLP Finanzberatung SE<br />
-          [Straße und Hausnummer]<br />
-          60313 Frankfurt am Main
+          Walther-von-Cronberg-Platz 2<br />
+          60594 Frankfurt am Main
         </p>
 
         <h2 className="font-heading text-xl font-bold text-darktext mt-8 mb-3">Kontakt</h2>
         <p className="text-gray-subtle">
-          E-Mail: [E-Mail-Adresse eintragen]<br />
-          Telefon: [Telefonnummer eintragen]
+          E-Mail:{" "}
+          <a href="mailto:levi.rudolph@mlp.de" className="text-gold underline">
+            levi.rudolph@mlp.de
+          </a>
+          <br />
+          Telefon:{" "}
+          <a href="tel:+4917640729893" className="text-gold underline">
+            +49 176 40729893
+          </a>
         </p>
 
         <h2 className="font-heading text-xl font-bold text-darktext mt-8 mb-3">Berufsbezeichnung und berufsrechtliche Regelungen</h2>
@@ -37,8 +44,9 @@ export default function ImpressumPage() {
           (Finanzanlagenvermittlung) und § 34i GewO (Immobiliendarlehensvermittlung).
         </p>
         <p className="text-gray-subtle mt-2">
-          Registriert beim DIHK (Deutscher Industrie- und Handelskammertag e.V.) unter der
-          Registernummer [Registernummer eintragen].
+          {/* TODO: Levi soll DIHK-Registernummer nachliefern */}
+          Registriert beim DIHK (Deutscher Industrie- und Handelskammertag e.V.). Die
+          Registernummer wird auf Anfrage gerne mitgeteilt.
         </p>
 
         <h2 className="font-heading text-xl font-bold text-darktext mt-8 mb-3">EU-Streitschlichtung</h2>
@@ -72,7 +80,7 @@ export default function ImpressumPage() {
         </p>
 
         <p className="text-xs text-gray-subtle mt-12 pt-8 border-t border-border">
-          [Platzhalter: Bitte alle mit [ ] markierten Felder vor der Veröffentlichung ausfüllen.]
+          Stand: Mai 2026
         </p>
       </div>
     </section>

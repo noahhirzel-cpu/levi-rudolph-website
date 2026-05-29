@@ -11,7 +11,7 @@ export interface LeistungContent {
 
 export const leistungenContent: LeistungContent[] = [
   {
-    slug: "altersvorsorge",
+    slug: "finanzanalyse",
     title: "360° Finanzanalyse",
     heroHeadline: "Im Alter wirklich frei sein",
     heroSubtext:
@@ -46,7 +46,7 @@ export const leistungenContent: LeistungContent[] = [
     ctaText: "Altersvorsorge kostenlos planen",
   },
   {
-    slug: "karriere-finanzplanung",
+    slug: "karriere",
     title: "Karriereplanung",
     heroHeadline: "Finanzielle Basics für deinen Karrierestart",
     heroSubtext:
@@ -81,7 +81,7 @@ export const leistungenContent: LeistungContent[] = [
     ctaText: "Finanzstart kostenlos besprechen",
   },
   {
-    slug: "vermoegensaufbau",
+    slug: "kapitalanlage",
     title: "Kapitalanlage",
     heroHeadline: "Geld arbeiten lassen — von Anfang an",
     heroSubtext:
@@ -116,7 +116,7 @@ export const leistungenContent: LeistungContent[] = [
     ctaText: "Anlagestrategie kostenlos besprechen",
   },
   {
-    slug: "krankenversicherung",
+    slug: "kontenmodell",
     title: "Kontenmodell",
     heroHeadline: "PKV — Chance oder Risiko?",
     heroSubtext:
@@ -151,7 +151,7 @@ export const leistungenContent: LeistungContent[] = [
     ctaText: "PKV-Vergleich kostenlos anfordern",
   },
   {
-    slug: "immobilienfinanzierung",
+    slug: "immobilien",
     title: "Immobilien",
     heroHeadline: "Dein Weg zur eigenen Immobilie",
     heroSubtext:
@@ -186,7 +186,7 @@ export const leistungenContent: LeistungContent[] = [
     ctaText: "Immobilienfinanzierung kostenlos besprechen",
   },
   {
-    slug: "berufsunfaehigkeit",
+    slug: "absicherung",
     title: "Absicherung",
     heroHeadline: "Deine Arbeitskraft ist dein größtes Kapital",
     heroSubtext:

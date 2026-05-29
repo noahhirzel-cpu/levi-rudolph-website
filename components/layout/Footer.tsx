@@ -24,12 +24,12 @@ const footerLinks = [
   {
     heading: "Leistungen",
     links: [
-      { href: "/leistungen/berufsunfaehigkeit", label: "Berufsunfähigkeit" },
-      { href: "/leistungen/altersvorsorge", label: "Altersvorsorge" },
-      { href: "/leistungen/krankenversicherung", label: "Krankenversicherung" },
-      { href: "/leistungen/vermoegensaufbau", label: "Vermögensaufbau" },
-      { href: "/leistungen/immobilienfinanzierung", label: "Immobilien" },
-      { href: "/leistungen/karriere-finanzplanung", label: "Karriere & Finanzen" },
+      { href: "/leistungen/finanzanalyse", label: "360° Finanzanalyse" },
+      { href: "/leistungen/karriere", label: "Karriereplanung" },
+      { href: "/leistungen/kapitalanlage", label: "Kapitalanlage" },
+      { href: "/leistungen/kontenmodell", label: "Kontenmodell" },
+      { href: "/leistungen/immobilien", label: "Immobilien" },
+      { href: "/leistungen/absicherung", label: "Absicherung" },
     ],
   },
   {

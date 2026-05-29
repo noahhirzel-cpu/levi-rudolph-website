@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, CheckCircle2, Send } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Send, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -48,6 +48,7 @@ export function FinanzcheckWizard() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [form, setForm] = useState<FormData>({
     situation: "",
     themen: [],
@@ -74,12 +75,13 @@ export function FinanzcheckWizard() {
 
   const handleSubmit = async () => {
     setLoading(true);
+    setErrorMsg(null);
     const situationLabel = situationOptions.find((s) => s.value === form.situation)?.label ?? form.situation;
     const themenLabels = form.themen.map((t) => themenOptions.find((o) => o.value === t)?.label ?? t).join(", ");
     const alterLabel = alterOptions.find((a) => a.value === form.alter)?.label ?? form.alter;
 
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -90,11 +92,22 @@ export function FinanzcheckWizard() {
           message: `Finanzcheck Ergebnisse:\n\nLebenssituation: ${situationLabel}\nThemen: ${themenLabels}\nAlter: ${alterLabel}`,
         }),
       });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const body = await res.json().catch(() => ({}));
+        setErrorMsg(
+          body?.error ??
+            "Senden hat nicht geklappt. Versuch's nochmal oder schreib mir direkt: levi.rudolph@mlp.de",
+        );
+      }
     } catch {
-      // Weiterleiten auch bei Fehler
+      setErrorMsg(
+        "Verbindung fehlgeschlagen. Versuch's nochmal oder schreib mir direkt: levi.rudolph@mlp.de",
+      );
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
-    setSubmitted(true);
   };
 
   if (submitted) {
@@ -300,6 +313,13 @@ export function FinanzcheckWizard() {
       </AnimatePresence>
 
       {/* TODO: Levi ergänzt weitere Fragen */}
+
+      {errorMsg && (
+        <div className="flex items-start gap-3 p-4 mt-8 border border-destructive/40 bg-destructive/5 text-destructive">
+          <AlertCircle size={18} className="shrink-0 mt-0.5" />
+          <p className="flex-1 text-sm font-medium">{errorMsg}</p>
+        </div>
+      )}
 
       {/* Navigation */}
       <div className="flex items-center justify-between mt-10 pt-8 border-t border-border">

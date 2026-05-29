@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, AlertCircle, Mail } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name muss mindestens 2 Zeichen haben"),
@@ -28,20 +29,22 @@ const topics = [
 ];
 
 export function ContactForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    getValues,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
 
   const onSubmit = async (data: ContactFormData) => {
     setIsLoading(true);
+    setErrorMsg(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -49,34 +52,31 @@ export function ContactForm() {
         body: JSON.stringify(data),
       });
       if (res.ok) {
-        setIsSubmitted(true);
-        reset();
+        router.push("/danke");
+        return;
       }
+      const body = await res.json().catch(() => ({}));
+      setErrorMsg(
+        body?.error ??
+          "Senden hat nicht geklappt. Bitte schreib mir direkt eine E-Mail.",
+      );
+    } catch {
+      setErrorMsg(
+        "Verbindung zum Server fehlgeschlagen. Bitte schreib mir direkt eine E-Mail.",
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
-  if (isSubmitted) {
-    return (
-      <div className="flex flex-col items-center text-center gap-4 py-16">
-        <CheckCircle2 size={48} className="text-gold" />
-        <h2 className="font-heading text-2xl font-bold text-darktext">
-          Nachricht erhalten!
-        </h2>
-        <p className="text-gray-subtle">
-          Vielen Dank! Ich melde mich zeitnah bei dir.
-        </p>
-        <Button
-          onClick={() => setIsSubmitted(false)}
-          variant="outline"
-          className="mt-4 rounded-none"
-        >
-          Weitere Nachricht senden
-        </Button>
-      </div>
+  const mailtoFallback = () => {
+    const { name = "", email = "", topic = "", message = "" } = getValues();
+    const subject = encodeURIComponent(`Anfrage: ${topic || "Beratung"}`);
+    const body = encodeURIComponent(
+      `Hallo Levi,\n\n${message}\n\n— ${name}${email ? ` (${email})` : ""}`,
     );
-  }
+    window.location.href = `mailto:levi.rudolph@mlp.de?subject=${subject}&body=${body}`;
+  };
 
   return (
     <form
@@ -174,6 +174,23 @@ export function ContactForm() {
         </a>{" "}
         zu.
       </p>
+
+      {errorMsg && (
+        <div className="flex items-start gap-3 p-4 border border-destructive/40 bg-destructive/5 text-destructive">
+          <AlertCircle size={18} className="shrink-0 mt-0.5" />
+          <div className="flex-1 text-sm">
+            <p className="font-semibold mb-2">{errorMsg}</p>
+            <button
+              type="button"
+              onClick={mailtoFallback}
+              className="inline-flex items-center gap-2 text-xs font-semibold underline hover:no-underline"
+            >
+              <Mail size={14} />
+              Stattdessen per E-Mail senden
+            </button>
+          </div>
+        </div>
+      )}
 
       <Button
         type="submit"

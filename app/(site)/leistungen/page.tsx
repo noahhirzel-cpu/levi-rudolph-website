@@ -10,17 +10,17 @@ export const metadata: Metadata = {
 };
 
 const slugToImage: Record<string, string> = {
-  berufsunfaehigkeit:
+  absicherung:
     "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&fit=crop",
-  altersvorsorge:
+  finanzanalyse:
     "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&q=80&fit=crop",
-  krankenversicherung:
+  kontenmodell:
     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop",
-  vermoegensaufbau:
+  kapitalanlage:
     "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&fit=crop",
-  immobilienfinanzierung:
+  immobilien:
     "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80&fit=crop",
-  "karriere-finanzplanung":
+  karriere:
     "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&fit=crop",
 };
 

@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Phone } from "lucide-react";
+import { CheckCircle2, Phone, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Termin buchen",
   description:
     "Buche jetzt dein kostenloses 30-Minuten Erstgespräch mit Levi Rudolph — Financial Advisor bei MLP Frankfurt. Unverbindlich und kostenlos.",
 };
-
-const calcomUrl =
-  process.env.NEXT_PUBLIC_CAL_COM_URL ??
-  "https://cal.com/levi-rudolph/erstgespraech";
 
 const benefits = [
   "Kostenlos & unverbindlich",
@@ -60,28 +56,37 @@ export default function TerminPage() {
             ))}
           </div>
 
-          {/* Direkt anrufen */}
-          <div className="mb-8 flex items-center gap-3 text-gray-subtle text-sm">
-            <span>Oder ruf mich direkt an:</span>
-            <Link
-              href="tel:+4917640729893"
-              className="inline-flex items-center gap-2 font-semibold text-darktext hover:text-gold transition-colors duration-200"
-            >
-              <Phone size={15} strokeWidth={1.5} />
-              +49 176 40729893
-            </Link>
-          </div>
-
-          {/* Cal.com Embed */}
-          <div className="overflow-hidden border border-border bg-white shadow-sm">
-            <iframe
-              src={calcomUrl}
-              width="100%"
-              height="700"
-              frameBorder="0"
-              title="Termin mit Levi Rudolph buchen"
-              className="w-full"
-            />
+          {/* Termin-Card — Placeholder bis Cal.com Account steht */}
+          {/* TODO: Cal.com Link eintragen sobald Account erstellt — dann iframe wieder einbinden */}
+          <div className="text-center p-10 sm:p-14 border-2 border-dashed border-gold bg-white">
+            <div className="inline-flex items-center justify-center w-14 h-14 bg-gold/10 mb-6">
+              <Phone size={24} className="text-gold" strokeWidth={1.5} />
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-darktext mb-3">
+              Termin direkt vereinbaren
+            </h2>
+            <p className="text-gray-subtle mb-2 text-base">
+              30 Minuten · Online via Microsoft Teams · Kostenlos
+            </p>
+            <p className="text-gray-subtle/80 text-sm mb-10">
+              Online-Kalender folgt in Kürze. So lange erreichst du mich am schnellsten direkt:
+            </p>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+              <Link
+                href="tel:+4917640729893"
+                className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-bold px-8 py-4 text-base hover:brightness-110 active:brightness-125 transition-all duration-200 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2"
+              >
+                <Phone size={18} strokeWidth={2} />
+                +49 176 40729893
+              </Link>
+              <Link
+                href="mailto:levi.rudolph@mlp.de"
+                className="inline-flex items-center justify-center gap-2 border border-darktext/20 text-darktext font-semibold px-8 py-4 text-base hover:border-darktext/50 hover:text-gold transition-all duration-200"
+              >
+                <Mail size={18} strokeWidth={1.5} />
+                levi.rudolph@mlp.de
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -14,37 +14,37 @@ import { ArrowRight } from "lucide-react";
 // TODO: Levi schickt eigene Bilder für die Leistungskacheln
 const services = [
   {
-    slug: "altersvorsorge",
+    slug: "finanzanalyse",
     title: "360° Finanzanalyse",
     description: "Der vollständige Überblick über deine Finanzsituation — Versicherungen, Vorsorge und Kapital in einem Blick.",
     imageSrc: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&q=80&fit=crop",
   },
   {
-    slug: "karriere-finanzplanung",
+    slug: "karriere",
     title: "Karriereplanung",
     description: "Brutto/Netto, Steuererklärung, Gehalt verhandeln. Finanzielle Grundlagen für deinen Karrierestart.",
     imageSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&fit=crop",
   },
   {
-    slug: "vermoegensaufbau",
+    slug: "kapitalanlage",
     title: "Kapitalanlage",
     description: "Vom ersten Depot bis zur langfristigen Strategie. Transparent, renditeorientiert, auf dich zugeschnitten.",
     imageSrc: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&fit=crop",
   },
   {
-    slug: "krankenversicherung",
+    slug: "kontenmodell",
     title: "Kontenmodell",
     description: "Dein optimales Kontenmodell für Aufbau, Rücklagen und Investitionen — klar strukturiert.",
     imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop",
   },
   {
-    slug: "immobilienfinanzierung",
+    slug: "immobilien",
     title: "Immobilien",
     description: "Eigenkapital planen, Finanzierung vergleichen. Dein Weg zur eigenen Immobilie — Schritt für Schritt.",
     imageSrc: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80&fit=crop",
   },
   {
-    slug: "berufsunfaehigkeit",
+    slug: "absicherung",
     title: "Absicherung",
     description: "Deine Arbeitskraft ist dein größtes Kapital. Ich finde die Absicherung, die wirklich zu deinem Beruf passt.",
     imageSrc: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&fit=crop",
@@ -107,14 +107,14 @@ export default async function HomePage() {
         subline="Von 'Ich mach das später' zu 'Hab ich geregelt' — mit maßgeschneiderten Finanzstrategien, die zu deinem Leben passen."
       />
 
-      {/* Stats */}
-      <section className="bg-white border-b border-border">
+      {/* Stats — Navy, schließt nahtlos an Hero an */}
+      <section className="bg-navy">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
             {stats.map((stat, i) => (
-              <FadeUp key={stat.label} delay={i * 0.1} className="flex flex-col items-center text-center px-6 py-8 bg-white">
-                <span className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-darktext">{stat.value}</span>
-                <span className="text-xs sm:text-sm text-gray-subtle mt-2 leading-tight">{stat.label}</span>
+              <FadeUp key={stat.label} delay={i * 0.1} className="flex flex-col items-center text-center px-6 py-8 bg-navy">
+                <span className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-warmwhite">{stat.value}</span>
+                <span className="text-xs sm:text-sm text-warmwhite/60 mt-2 leading-tight">{stat.label}</span>
               </FadeUp>
             ))}
           </div>

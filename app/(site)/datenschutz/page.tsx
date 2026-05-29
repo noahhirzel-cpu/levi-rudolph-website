@@ -56,16 +56,16 @@ export default function DatenschutzPage() {
             3. Hosting
           </h2>
           <p className="text-gray-subtle leading-relaxed">
-            Diese Website wird bei Vercel Inc. gehostet. Vercel ist ein Anbieter für
-            Cloud-Hosting-Dienste. Details zur Verarbeitung deiner Daten durch Vercel findest
+            Diese Website wird bei Netlify, Inc. gehostet. Netlify ist ein Anbieter für
+            Cloud-Hosting-Dienste. Details zur Verarbeitung deiner Daten durch Netlify findest
             du in deren Datenschutzerklärung unter{" "}
             <a
-              href="https://vercel.com/legal/privacy-policy"
+              href="https://www.netlify.com/privacy/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold underline"
             >
-              https://vercel.com/legal/privacy-policy
+              https://www.netlify.com/privacy/
             </a>
             .
           </p>
@@ -76,10 +76,10 @@ export default function DatenschutzPage() {
             4. Analytics
           </h2>
           <p className="text-gray-subtle leading-relaxed">
-            Diese Website verwendet Vercel Analytics zur anonymisierten Auswertung des
-            Nutzerverhaltens. Vercel Analytics setzt keine Cookies und erhebt keine
-            personenbezogenen Daten. Es werden ausschließlich aggregierte, anonyme Statistiken
-            erfasst, die DSGVO-konform sind.
+            Diese Website verwendet Netlify Analytics bzw. Server-Log-Auswertungen zur
+            anonymisierten Auswertung des Nutzerverhaltens. Es werden keine Cookies gesetzt
+            und keine personenbezogenen Daten erhoben. Es werden ausschließlich aggregierte,
+            anonyme Statistiken erfasst, die DSGVO-konform sind.
           </p>
         </section>
 

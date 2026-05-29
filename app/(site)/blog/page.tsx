@@ -59,7 +59,16 @@ export default async function BlogPage() {
                 Erste Artikel kommen bald
               </h2>
               <p className="text-gray-subtle">
-                Folge mir auf LinkedIn für aktuelle Beiträge.
+                Bis dahin findest du meine aktuellen Beiträge auf{" "}
+                <a
+                  href="https://de.linkedin.com/in/levi-rudolph-dh-student"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gold underline hover:no-underline font-semibold"
+                >
+                  LinkedIn
+                </a>
+                .
               </p>
             </div>
           ) : (
