@@ -35,34 +35,14 @@ export function AnimatedHero({
   });
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-navy -mt-[72px] lg:-mt-[80px]">
-      {/* 1. Foto als Hintergrund — full-bleed */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/levi-business.jpeg"
-          alt="Levi Rudolph — Financial Advisor Frankfurt"
-          fill
-          className="object-cover object-center sm:object-[60%_center] lg:object-[65%_center]"
-          priority
-          sizes="100vw"
-        />
-      </div>
+    <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden -mt-[72px] lg:-mt-[80px]">
 
-      {/* 2a. Horizontaler Gradient — links dunkel, rechts transparent (Lesbarkeit) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/75 to-navy/30 lg:to-transparent" />
-      {/* 2b. Vertikaler Auslauf unten — fließender Übergang in die nächste Section */}
-      <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
-      {/* 3. Subtile Vignette unten rechts */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-navy/40" />
-      {/* Mobile: zusätzlicher Verlauf von oben für Logo/Nav Lesbarkeit */}
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-navy/70 to-transparent lg:hidden" />
-
-      {/* 4. Text-Content — linksbündig, gut lesbar */}
-      <div className="relative z-10 flex flex-col justify-center min-h-screen max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-[72px] lg:pt-[80px]">
+      {/* Left — Text */}
+      <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-36 pb-20 lg:py-0">
         <motion.div
           initial="hidden"
           animate="visible"
-          className="max-w-2xl pt-20 pb-32 lg:py-10 flex flex-col gap-6"
+          className="flex flex-col gap-6"
         >
           {/* Label */}
           <motion.p
@@ -75,7 +55,7 @@ export function AnimatedHero({
           {/* Headline */}
           <motion.h1
             variants={fade(0.2)}
-            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-warmwhite leading-[1.05] tracking-tight"
+            className="font-heading text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-warmwhite leading-[1.05] tracking-tight"
           >
             {headline}
           </motion.h1>
@@ -83,7 +63,7 @@ export function AnimatedHero({
           {/* Subline */}
           <motion.p
             variants={fade(0.35)}
-            className="text-base sm:text-lg lg:text-xl text-warmwhite/80 leading-relaxed max-w-xl"
+            className="text-base sm:text-lg text-warmwhite/60 leading-relaxed max-w-lg"
           >
             {subline}
           </motion.p>
@@ -91,7 +71,7 @@ export function AnimatedHero({
           {/* Buttons */}
           <motion.div
             variants={fade(0.5)}
-            className="flex flex-col sm:flex-row gap-3 pt-4"
+            className="flex flex-col sm:flex-row gap-3 pt-2"
           >
             <Button
               render={<Link href={ctaHref} />}
@@ -110,24 +90,37 @@ export function AnimatedHero({
             </Button>
           </motion.div>
         </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="hidden lg:flex absolute bottom-6 left-16 xl:left-20 flex-col items-start gap-2 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          aria-hidden
+        >
+          <span className="text-[10px] tracking-widest uppercase text-warmwhite/40 font-semibold">
+            Scrollen
+          </span>
+          <span className="block w-px h-10 bg-gradient-to-b from-warmwhite/40 to-transparent" />
+        </motion.div>
       </div>
 
-      {/* 5. Unterer Auslauf — Navy läuft weich in nächste Section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy to-transparent pointer-events-none" />
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-6 left-6 sm:left-8 lg:left-12 flex flex-col items-start gap-2 z-10 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        aria-hidden
-      >
-        <span className="text-[10px] tracking-widest uppercase text-warmwhite/40 font-semibold">
-          Scrollen
-        </span>
-        <span className="block w-px h-10 bg-gradient-to-b from-warmwhite/40 to-transparent" />
-      </motion.div>
+      {/* Right — Photo */}
+      <div className="relative min-h-[60vh] lg:min-h-screen bg-navy">
+        <Image
+          src="/images/levi-business.jpeg"
+          alt="Levi Rudolph — Financial Advisor Frankfurt"
+          fill
+          className="object-contain object-center lg:object-cover lg:object-top"
+          priority
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        {/* Desktop: Gradient-Blend von links */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/20 to-transparent hidden lg:block" />
+        {/* Mobile: Gradient von oben für Nav-Lesbarkeit */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-transparent lg:hidden" />
+      </div>
     </section>
   );
 }
