@@ -35,10 +35,10 @@ export function AnimatedHero({
   });
 
   return (
-    <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden -mt-[72px] lg:-mt-[80px]">
+    <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden">
 
       {/* Left — Text (Desktop: links, Mobile: unten) */}
-      <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-12 pb-16 lg:py-0 order-2 lg:order-1">
+      <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-36 pb-20 lg:py-0 order-2 lg:order-1">
         <motion.div
           initial="hidden"
           animate="visible"
