@@ -37,8 +37,8 @@ export function AnimatedHero({
   return (
     <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-navy overflow-hidden -mt-[72px] lg:-mt-[80px]">
 
-      {/* Left — Text */}
-      <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-36 pb-20 lg:py-0">
+      {/* Left — Text (Desktop: links, Mobile: unten) */}
+      <div className="relative z-10 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-12 pb-16 lg:py-0 order-2 lg:order-1">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -106,8 +106,8 @@ export function AnimatedHero({
         </motion.div>
       </div>
 
-      {/* Right — Photo */}
-      <div className="relative min-h-[60vh] lg:min-h-screen bg-navy">
+      {/* Right — Photo (Desktop: rechts, Mobile: oben) */}
+      <div className="relative min-h-[60vh] lg:min-h-screen bg-navy order-1 lg:order-2">
         <Image
           src="/images/levi-business.jpeg"
           alt="Levi Rudolph — Financial Advisor Frankfurt"
@@ -118,8 +118,9 @@ export function AnimatedHero({
         />
         {/* Desktop: Gradient-Blend von links */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/20 to-transparent hidden lg:block" />
-        {/* Mobile: Gradient von oben für Nav-Lesbarkeit */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-transparent lg:hidden" />
+        {/* Mobile: Gradient oben (Nav-Lesbarkeit) + unten (Übergang in Textblock) */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy/70 to-transparent lg:hidden" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy to-transparent lg:hidden" />
       </div>
     </section>
   );
